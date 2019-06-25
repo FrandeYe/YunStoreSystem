@@ -12,6 +12,19 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+    <jdk.version>1.8</jdk.version>
+    <junit.version>3.8.1</junit.version>
+    <jfinal.version>4.2</jfinal.version>
+    <cos.version>2017.5</cos.version>
+    <apachelog4j.version>2.11.1</apachelog4j.version>
+    <log4j.version>1.2.17</log4j.version>
+    <jfinalundertow.version>1.7</jfinalundertow.version>
+	<druid.version>1.0.29</druid.version>
+	<mysql.version>5.1.46</mysql.version>
+	<jfinal-ext2.version>2.0.8</jfinal-ext2.version>
+	<ehcache-core.version>2.6.6</ehcache-core.version>
+	<ehcache-web.version>2.0.4</ehcache-web.version>
   </properties>
 
   <dependencies>
@@ -19,22 +32,77 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
 
-	<!-- 添加 jfinal-undertow 与 jfinal 依赖 -->
+	<!-- jfinal-undertow  -->
 	<dependency>
 		<groupId>com.jfinal</groupId>
 		<artifactId>jfinal-undertow</artifactId>
-		<version>1.7</version>
+		<version>${jfinalundertow.version}</version>
 	</dependency>
-
+	
+	<!-- jfinal -->
 	<dependency>
 		<groupId>com.jfinal</groupId>
 		<artifactId>jfinal</artifactId>
-		<version>4.2</version>
+		<version>${jfinal.version}</version>
+	</dependency>
+	
+	<!-- druid -->
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>druid</artifactId>
+	    <version>${druid.version}</version>
+	</dependency>
+
+	<!-- mysql -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>${mysql.version}</version>
+	</dependency>
+	
+	<!-- log4j -->
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>${log4j.version}</version>
+	</dependency>
+
+    <!-- 避免控制台输出如下提示信息： SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". 
+			项目中实际上用不到这个 jar 包 注意：eclipse 下可以将 scope 设置为 provided -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-nop</artifactId>
+		<version>1.7.25</version>
+		<!-- 打包前改成 provided，此处使用 compile 仅为支持 IDEA -->
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- jfinal-ext2 -->
+	<dependency>
+		<groupId>com.jfinal</groupId>
+		<artifactId>jfinal-ext2</artifactId>
+		<version>${jfinal-ext2.version}</version>
+	</dependency>
+    
+    <!-- ehcache-core -->
+    <dependency>
+		<groupId>net.sf.ehcache</groupId>
+		<artifactId>ehcache-core</artifactId>
+		<version>${ehcache-core.version}</version>
+	</dependency>
+	
+	<!-- ehcache-web -->
+	<dependency>
+		<groupId>net.sf.ehcache</groupId>
+		<artifactId>ehcache-web</artifactId>
+		<version>${ehcache-web.version}</version>
 	</dependency>
     
   </dependencies>
+  
+  
 </project>
