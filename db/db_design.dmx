@@ -2,7 +2,7 @@
 <CTOXML>
 
 <DataModels>
-  <TableCount>7</TableCount>
+  <TableCount>14</TableCount>
   <Count>1</Count>
 </DataModels>
 
@@ -18,21 +18,21 @@
 
 
 <DataModels_item1_item0>
-  <Count>7</Count>
+  <Count>14</Count>
 </DataModels_item1_item0>
 
 
 <DataModels_item1_item0_item1>
   <CTVER>43543230</CTVER>
-  <ID>1</ID>
-  <Name>system_admin</Name>
-  <Caption>1.6、系统管理用户表</Caption>
-  <Memo>存储系统后台管理用户，运维人员等</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <ID>3</ID>
+  <Name>system_menu</Name>
+  <Caption>1.1、系统菜单表</Caption>
+  <Memo>存储系统后台的左侧导航栏菜单信息</Memo>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>1</OrderNo>
-  <GraphDesc>Left=469.00
-Top=8.00</GraphDesc>
+  <GraphDesc>Left=10.00
+Top=10.00</GraphDesc>
 </DataModels_item1_item0_item1>
 
 
@@ -44,14 +44,14 @@ Top=8.00</GraphDesc>
 <DataModels_item1_item0_item1_item0_item1>
   <CTVER>43543230</CTVER>
   <ID>1</ID>
-  <Name>id</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <Name>Id</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>1</OrderNo>
   <DisplayName>编号</DisplayName>
   <DataType>2</DataType>
   <KeyFieldType>1</KeyFieldType>
-  <Nullable>0</Nullable>
+  <Nullable>1</Nullable>
   <EditorReadOnly>0</EditorReadOnly>
   <EditorEnabled>0</EditorEnabled>
 </DataModels_item1_item0_item1_item0_item1>
@@ -60,8 +60,8 @@ Top=8.00</GraphDesc>
 <DataModels_item1_item0_item1_item0_item2>
   <CTVER>43543230</CTVER>
   <ID>2</ID>
-  <Name>parent_id</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <Name>Pid</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>2</OrderNo>
   <DisplayName>父编号</DisplayName>
@@ -76,7 +76,7 @@ Top=8.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>3</ID>
   <Name>Rid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>3</OrderNo>
   <DisplayName>关联编号</DisplayName>
@@ -92,7 +92,7 @@ Top=8.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>4</ID>
   <Name>Name</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>4</OrderNo>
   <DisplayName>名称</DisplayName>
@@ -108,7 +108,7 @@ Top=8.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>5</ID>
   <Name>Memo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>5</OrderNo>
   <DisplayName>注释</DisplayName>
@@ -123,7 +123,7 @@ Top=8.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>6</ID>
   <Name>TypeName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>6</OrderNo>
   <DisplayName>类名</DisplayName>
@@ -139,7 +139,7 @@ Top=8.00</GraphDesc>
   <ID>7</ID>
   <Name>CreatorId</Name>
   <Memo>当前用户ID</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>7</OrderNo>
   <DisplayName>创建人编号</DisplayName>
@@ -155,7 +155,7 @@ Top=8.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>8</ID>
   <Name>CreatorName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>8</OrderNo>
   <DisplayName>创建人姓名</DisplayName>
@@ -171,7 +171,7 @@ Top=8.00</GraphDesc>
   <ID>9</ID>
   <Name>CreateDate</Name>
   <Memo>默认为当前时间</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>9</OrderNo>
   <DisplayName>创建日期</DisplayName>
@@ -188,7 +188,7 @@ Top=8.00</GraphDesc>
   <ID>10</ID>
   <Name>DataLevel</Name>
   <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>10</OrderNo>
   <DisplayName>数据级别</DisplayName>
@@ -203,7 +203,7 @@ Top=8.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>11</ID>
   <Name>OrderNo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>11</OrderNo>
   <DisplayName>排序号</DisplayName>
@@ -216,15 +216,15 @@ Top=8.00</GraphDesc>
 
 <DataModels_item1_item0_item2>
   <CTVER>43543230</CTVER>
-  <ID>3</ID>
-  <Name>system_menu</Name>
-  <Caption>1.1、系统菜单表</Caption>
-  <Memo>存储系统后台的左侧导航栏菜单信息</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <ID>4</ID>
+  <Name>system_oper</Name>
+  <Caption>1.2、系统操作表</Caption>
+  <Memo>存储系统后台功能的操作信息</Memo>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>2</OrderNo>
-  <GraphDesc>Left=13.00
-Top=6.00</GraphDesc>
+  <GraphDesc>Left=210.50
+Top=9.00</GraphDesc>
 </DataModels_item1_item0_item2>
 
 
@@ -237,7 +237,7 @@ Top=6.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>1</ID>
   <Name>Id</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>1</OrderNo>
   <DisplayName>编号</DisplayName>
@@ -253,7 +253,7 @@ Top=6.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>2</ID>
   <Name>Pid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>2</OrderNo>
   <DisplayName>父编号</DisplayName>
@@ -268,7 +268,7 @@ Top=6.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>3</ID>
   <Name>Rid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>3</OrderNo>
   <DisplayName>关联编号</DisplayName>
@@ -284,7 +284,7 @@ Top=6.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>4</ID>
   <Name>Name</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>4</OrderNo>
   <DisplayName>名称</DisplayName>
@@ -300,7 +300,7 @@ Top=6.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>5</ID>
   <Name>Memo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>5</OrderNo>
   <DisplayName>注释</DisplayName>
@@ -315,7 +315,7 @@ Top=6.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>6</ID>
   <Name>TypeName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>6</OrderNo>
   <DisplayName>类名</DisplayName>
@@ -331,7 +331,7 @@ Top=6.00</GraphDesc>
   <ID>7</ID>
   <Name>CreatorId</Name>
   <Memo>当前用户ID</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>7</OrderNo>
   <DisplayName>创建人编号</DisplayName>
@@ -347,7 +347,7 @@ Top=6.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>8</ID>
   <Name>CreatorName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>8</OrderNo>
   <DisplayName>创建人姓名</DisplayName>
@@ -363,7 +363,7 @@ Top=6.00</GraphDesc>
   <ID>9</ID>
   <Name>CreateDate</Name>
   <Memo>默认为当前时间</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>9</OrderNo>
   <DisplayName>创建日期</DisplayName>
@@ -380,7 +380,7 @@ Top=6.00</GraphDesc>
   <ID>10</ID>
   <Name>DataLevel</Name>
   <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>10</OrderNo>
   <DisplayName>数据级别</DisplayName>
@@ -395,7 +395,7 @@ Top=6.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>11</ID>
   <Name>OrderNo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:10:18</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>11</OrderNo>
   <DisplayName>排序号</DisplayName>
@@ -408,15 +408,15 @@ Top=6.00</GraphDesc>
 
 <DataModels_item1_item0_item3>
   <CTVER>43543230</CTVER>
-  <ID>4</ID>
-  <Name>system_oper</Name>
-  <Caption>1.2、系统操作表</Caption>
-  <Memo>存储系统后台功能的操作信息</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <ID>5</ID>
+  <Name>system_role</Name>
+  <Caption>1.3、系统角色表</Caption>
+  <Memo>存储系统管理用户角色信息</Memo>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>3</OrderNo>
-  <GraphDesc>Left=237.00
-Top=7.00</GraphDesc>
+  <GraphDesc>Left=409.50
+Top=6.00</GraphDesc>
 </DataModels_item1_item0_item3>
 
 
@@ -429,7 +429,7 @@ Top=7.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>1</ID>
   <Name>Id</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>1</OrderNo>
   <DisplayName>编号</DisplayName>
@@ -445,7 +445,7 @@ Top=7.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>2</ID>
   <Name>Pid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>2</OrderNo>
   <DisplayName>父编号</DisplayName>
@@ -460,7 +460,7 @@ Top=7.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>3</ID>
   <Name>Rid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>3</OrderNo>
   <DisplayName>关联编号</DisplayName>
@@ -476,7 +476,7 @@ Top=7.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>4</ID>
   <Name>Name</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>4</OrderNo>
   <DisplayName>名称</DisplayName>
@@ -492,7 +492,7 @@ Top=7.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>5</ID>
   <Name>Memo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>5</OrderNo>
   <DisplayName>注释</DisplayName>
@@ -507,7 +507,7 @@ Top=7.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>6</ID>
   <Name>TypeName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>6</OrderNo>
   <DisplayName>类名</DisplayName>
@@ -523,7 +523,7 @@ Top=7.00</GraphDesc>
   <ID>7</ID>
   <Name>CreatorId</Name>
   <Memo>当前用户ID</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>7</OrderNo>
   <DisplayName>创建人编号</DisplayName>
@@ -539,7 +539,7 @@ Top=7.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>8</ID>
   <Name>CreatorName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>8</OrderNo>
   <DisplayName>创建人姓名</DisplayName>
@@ -555,7 +555,7 @@ Top=7.00</GraphDesc>
   <ID>9</ID>
   <Name>CreateDate</Name>
   <Memo>默认为当前时间</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>9</OrderNo>
   <DisplayName>创建日期</DisplayName>
@@ -572,7 +572,7 @@ Top=7.00</GraphDesc>
   <ID>10</ID>
   <Name>DataLevel</Name>
   <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>10</OrderNo>
   <DisplayName>数据级别</DisplayName>
@@ -587,7 +587,7 @@ Top=7.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>11</ID>
   <Name>OrderNo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:13:14</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>11</OrderNo>
   <DisplayName>排序号</DisplayName>
@@ -600,15 +600,15 @@ Top=7.00</GraphDesc>
 
 <DataModels_item1_item0_item4>
   <CTVER>43543230</CTVER>
-  <ID>5</ID>
-  <Name>system_role</Name>
-  <Caption>1.3、系统角色表</Caption>
-  <Memo>存储系统管理用户角色信息</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <ID>6</ID>
+  <Name>system_role_oper_ref</Name>
+  <Caption>1.4、系统角色操作表</Caption>
+  <Memo>存储系统角色与功能操作的关系信息</Memo>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>4</OrderNo>
-  <GraphDesc>Left=745.00
-Top=10.00</GraphDesc>
+  <GraphDesc>Left=607.50
+Top=7.00</GraphDesc>
 </DataModels_item1_item0_item4>
 
 
@@ -621,7 +621,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>1</ID>
   <Name>Id</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>1</OrderNo>
   <DisplayName>编号</DisplayName>
@@ -637,7 +637,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>2</ID>
   <Name>Pid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>2</OrderNo>
   <DisplayName>父编号</DisplayName>
@@ -652,7 +652,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>3</ID>
   <Name>Rid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>3</OrderNo>
   <DisplayName>关联编号</DisplayName>
@@ -668,7 +668,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>4</ID>
   <Name>Name</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>4</OrderNo>
   <DisplayName>名称</DisplayName>
@@ -684,7 +684,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>5</ID>
   <Name>Memo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>5</OrderNo>
   <DisplayName>注释</DisplayName>
@@ -699,7 +699,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>6</ID>
   <Name>TypeName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>6</OrderNo>
   <DisplayName>类名</DisplayName>
@@ -715,7 +715,7 @@ Top=10.00</GraphDesc>
   <ID>7</ID>
   <Name>CreatorId</Name>
   <Memo>当前用户ID</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>7</OrderNo>
   <DisplayName>创建人编号</DisplayName>
@@ -731,7 +731,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>8</ID>
   <Name>CreatorName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>8</OrderNo>
   <DisplayName>创建人姓名</DisplayName>
@@ -747,7 +747,7 @@ Top=10.00</GraphDesc>
   <ID>9</ID>
   <Name>CreateDate</Name>
   <Memo>默认为当前时间</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>9</OrderNo>
   <DisplayName>创建日期</DisplayName>
@@ -764,7 +764,7 @@ Top=10.00</GraphDesc>
   <ID>10</ID>
   <Name>DataLevel</Name>
   <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>10</OrderNo>
   <DisplayName>数据级别</DisplayName>
@@ -779,7 +779,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>11</ID>
   <Name>OrderNo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:37:38</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>11</OrderNo>
   <DisplayName>排序号</DisplayName>
@@ -792,15 +792,15 @@ Top=10.00</GraphDesc>
 
 <DataModels_item1_item0_item5>
   <CTVER>43543230</CTVER>
-  <ID>6</ID>
-  <Name>system_role_oper_ref</Name>
-  <Caption>1.4、系统角色操作表</Caption>
-  <Memo>存储系统角色与功能操作的关系信息</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <ID>7</ID>
+  <Name>system_region</Name>
+  <Caption>1.5、系统区域表</Caption>
+  <Memo>存储系统地区信息（全国省，市，县、区）</Memo>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>5</OrderNo>
-  <GraphDesc>Left=990.00
-Top=10.00</GraphDesc>
+  <GraphDesc>Left=876.50
+Top=9.00</GraphDesc>
 </DataModels_item1_item0_item5>
 
 
@@ -813,7 +813,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>1</ID>
   <Name>Id</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>1</OrderNo>
   <DisplayName>编号</DisplayName>
@@ -829,7 +829,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>2</ID>
   <Name>Pid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>2</OrderNo>
   <DisplayName>父编号</DisplayName>
@@ -844,7 +844,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>3</ID>
   <Name>Rid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>3</OrderNo>
   <DisplayName>关联编号</DisplayName>
@@ -860,7 +860,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>4</ID>
   <Name>Name</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>4</OrderNo>
   <DisplayName>名称</DisplayName>
@@ -876,7 +876,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>5</ID>
   <Name>Memo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>5</OrderNo>
   <DisplayName>注释</DisplayName>
@@ -891,7 +891,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>6</ID>
   <Name>TypeName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>6</OrderNo>
   <DisplayName>类名</DisplayName>
@@ -907,7 +907,7 @@ Top=10.00</GraphDesc>
   <ID>7</ID>
   <Name>CreatorId</Name>
   <Memo>当前用户ID</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>7</OrderNo>
   <DisplayName>创建人编号</DisplayName>
@@ -923,7 +923,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>8</ID>
   <Name>CreatorName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>8</OrderNo>
   <DisplayName>创建人姓名</DisplayName>
@@ -939,7 +939,7 @@ Top=10.00</GraphDesc>
   <ID>9</ID>
   <Name>CreateDate</Name>
   <Memo>默认为当前时间</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>9</OrderNo>
   <DisplayName>创建日期</DisplayName>
@@ -956,7 +956,7 @@ Top=10.00</GraphDesc>
   <ID>10</ID>
   <Name>DataLevel</Name>
   <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>10</OrderNo>
   <DisplayName>数据级别</DisplayName>
@@ -971,7 +971,7 @@ Top=10.00</GraphDesc>
   <CTVER>43543230</CTVER>
   <ID>11</ID>
   <Name>OrderNo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:38:57</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>11</OrderNo>
   <DisplayName>排序号</DisplayName>
@@ -984,34 +984,34 @@ Top=10.00</GraphDesc>
 
 <DataModels_item1_item0_item6>
   <CTVER>43543230</CTVER>
-  <ID>7</ID>
-  <Name>system_region</Name>
-  <Caption>1.5、系统区域表</Caption>
-  <Memo>存储系统地区信息（全国省，市，县、区）</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <ID>1</ID>
+  <Name>system_admin</Name>
+  <Caption>1.6、系统管理用户表</Caption>
+  <Memo>存储系统后台管理用户，运维人员等</Memo>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>6</OrderNo>
-  <GraphDesc>Left=10.00
-Top=310.00</GraphDesc>
+  <GraphDesc>Left=2.00
+Top=216.00</GraphDesc>
 </DataModels_item1_item0_item6>
 
 
 <DataModels_item1_item0_item6_item0>
-  <Count>11</Count>
+  <Count>17</Count>
 </DataModels_item1_item0_item6_item0>
 
 
 <DataModels_item1_item0_item6_item0_item1>
   <CTVER>43543230</CTVER>
   <ID>1</ID>
-  <Name>Id</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <Name>id</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>1</OrderNo>
   <DisplayName>编号</DisplayName>
   <DataType>2</DataType>
   <KeyFieldType>1</KeyFieldType>
-  <Nullable>1</Nullable>
+  <Nullable>0</Nullable>
   <EditorReadOnly>0</EditorReadOnly>
   <EditorEnabled>0</EditorEnabled>
 </DataModels_item1_item0_item6_item0_item1>
@@ -1020,8 +1020,8 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item2>
   <CTVER>43543230</CTVER>
   <ID>2</ID>
-  <Name>Pid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <Name>parent_id</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>2</OrderNo>
   <DisplayName>父编号</DisplayName>
@@ -1035,8 +1035,8 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item3>
   <CTVER>43543230</CTVER>
   <ID>3</ID>
-  <Name>Rid</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <Name>role_id</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>3</OrderNo>
   <DisplayName>关联编号</DisplayName>
@@ -1051,8 +1051,8 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item4>
   <CTVER>43543230</CTVER>
   <ID>4</ID>
-  <Name>Name</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <Name>login_name</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>4</OrderNo>
   <DisplayName>名称</DisplayName>
@@ -1067,8 +1067,8 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item5>
   <CTVER>43543230</CTVER>
   <ID>5</ID>
-  <Name>Memo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <Name>real_name</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>5</OrderNo>
   <DisplayName>注释</DisplayName>
@@ -1082,8 +1082,8 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item6>
   <CTVER>43543230</CTVER>
   <ID>6</ID>
-  <Name>TypeName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <Name>head_url</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>6</OrderNo>
   <DisplayName>类名</DisplayName>
@@ -1097,9 +1097,9 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item7>
   <CTVER>43543230</CTVER>
   <ID>7</ID>
-  <Name>CreatorId</Name>
+  <Name>creator_id</Name>
   <Memo>当前用户ID</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>7</OrderNo>
   <DisplayName>创建人编号</DisplayName>
@@ -1114,8 +1114,8 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item8>
   <CTVER>43543230</CTVER>
   <ID>8</ID>
-  <Name>CreatorName</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <Name>password</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>8</OrderNo>
   <DisplayName>创建人姓名</DisplayName>
@@ -1129,9 +1129,9 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item9>
   <CTVER>43543230</CTVER>
   <ID>9</ID>
-  <Name>CreateDate</Name>
+  <Name>salt</Name>
   <Memo>默认为当前时间</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>9</OrderNo>
   <DisplayName>创建日期</DisplayName>
@@ -1146,9 +1146,9 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item10>
   <CTVER>43543230</CTVER>
   <ID>10</ID>
-  <Name>DataLevel</Name>
+  <Name>last_login_ip</Name>
   <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>10</OrderNo>
   <DisplayName>数据级别</DisplayName>
@@ -1162,8 +1162,8 @@ Top=310.00</GraphDesc>
 <DataModels_item1_item0_item6_item0_item11>
   <CTVER>43543230</CTVER>
   <ID>11</ID>
-  <Name>OrderNo</Name>
-  <CreateDate>2019/6/24 星期一 下午 8:41:25</CreateDate>
+  <Name>last_login_time</Name>
+  <CreateDate>2019/6/24 星期一 下午 8:04:34</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>11</OrderNo>
   <DisplayName>排序号</DisplayName>
@@ -1172,6 +1172,90 @@ Top=310.00</GraphDesc>
   <EditorReadOnly>0</EditorReadOnly>
   <EditorEnabled>0</EditorEnabled>
 </DataModels_item1_item0_item6_item0_item11>
+
+
+<DataModels_item1_item0_item6_item0_item12>
+  <CTVER>43543230</CTVER>
+  <ID>12</ID>
+  <Name>des</Name>
+  <CreateDate>2019/6/30 星期日 下午 5:28:37</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>12</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item12>
+
+
+<DataModels_item1_item0_item6_item0_item13>
+  <CTVER>43543230</CTVER>
+  <ID>13</ID>
+  <Name>remark</Name>
+  <CreateDate>2019/6/30 星期日 下午 5:28:57</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>13</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item13>
+
+
+<DataModels_item1_item0_item6_item0_item14>
+  <CTVER>43543230</CTVER>
+  <ID>27</ID>
+  <Name>create_time</Name>
+  <CreateDate>2019/6/30 星期日 下午 8:59:14</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>14</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item14>
+
+
+<DataModels_item1_item0_item6_item0_item15>
+  <CTVER>43543230</CTVER>
+  <ID>28</ID>
+  <Name>disable_flag</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:14:04</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>15</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item15>
+
+
+<DataModels_item1_item0_item6_item0_item16>
+  <CTVER>43543230</CTVER>
+  <ID>29</ID>
+  <Name>login_error</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:14:26</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>16</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item16>
+
+
+<DataModels_item1_item0_item6_item0_item17>
+  <CTVER>43543230</CTVER>
+  <ID>30</ID>
+  <Name>super_admin</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:15:04</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>17</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item17>
 
 
 <DataModels_item1_item0_item7>
@@ -1183,8 +1267,8 @@ Top=310.00</GraphDesc>
   <CreateDate>2019/6/24 星期一 下午 8:43:26</CreateDate>
   <ModifyDate>1899/12/30 星期六</ModifyDate>
   <OrderNo>7</OrderNo>
-  <GraphDesc>Left=255.00
-Top=310.00</GraphDesc>
+  <GraphDesc>Left=237.00
+Top=220.00</GraphDesc>
 </DataModels_item1_item0_item7>
 
 
@@ -1364,6 +1448,1217 @@ Top=310.00</GraphDesc>
   <EditorReadOnly>0</EditorReadOnly>
   <EditorEnabled>0</EditorEnabled>
 </DataModels_item1_item0_item7_item0_item11>
+
+
+<DataModels_item1_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>doc_notebook</Name>
+  <Caption>2.1、笔记本表（doc_notebook）</Caption>
+  <CreateDate>2019/6/30 星期日 下午 9:01:01</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <GraphDesc>Left=443.50
+Top=219.00</GraphDesc>
+</DataModels_item1_item0_item8>
+
+
+<DataModels_item1_item0_item8_item0>
+  <Count>7</Count>
+</DataModels_item1_item0_item8_item0>
+
+
+<DataModels_item1_item0_item8_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>Id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:01:01</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item8_item0_item1>
+
+
+<DataModels_item1_item0_item8_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>creator_id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:01:01</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父编号</DisplayName>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item8_item0_item2>
+
+
+<DataModels_item1_item0_item8_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>book_name</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:01:01</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>关联编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>3</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item8_item0_item3>
+
+
+<DataModels_item1_item0_item8_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>remark</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:01:01</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>255</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item8_item0_item4>
+
+
+<DataModels_item1_item0_item8_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>create_tiem</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:01:01</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>注释</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item8_item0_item5>
+
+
+<DataModels_item1_item0_item8_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>update_time</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:01:01</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>类名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item8_item0_item6>
+
+
+<DataModels_item1_item0_item8_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>log</Name>
+  <Memo>当前用户ID</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:01:01</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>创建人编号</DisplayName>
+  <DataType>2</DataType>
+  <IndexType>2</IndexType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item8_item0_item7>
+
+
+<DataModels_item1_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>doc_noteinfo</Name>
+  <Caption>2.2、笔记信息表（doc_noteinfo）</Caption>
+  <CreateDate>2019/6/30 星期日 下午 9:05:29</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <GraphDesc>Left=733.00
+Top=220.00</GraphDesc>
+</DataModels_item1_item0_item9>
+
+
+<DataModels_item1_item0_item9_item0>
+  <Count>7</Count>
+</DataModels_item1_item0_item9_item0>
+
+
+<DataModels_item1_item0_item9_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:05:29</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item9_item0_item1>
+
+
+<DataModels_item1_item0_item9_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>creator_id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:05:29</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父编号</DisplayName>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item9_item0_item2>
+
+
+<DataModels_item1_item0_item9_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>title</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:05:29</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>关联编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>3</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item9_item0_item3>
+
+
+<DataModels_item1_item0_item9_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>remark</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:05:29</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>255</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item9_item0_item4>
+
+
+<DataModels_item1_item0_item9_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>content</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:05:29</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>注释</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item9_item0_item5>
+
+
+<DataModels_item1_item0_item9_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>create_time</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:05:29</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>类名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item9_item0_item6>
+
+
+<DataModels_item1_item0_item9_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>update_time</Name>
+  <Memo>当前用户ID</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:05:29</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>创建人编号</DisplayName>
+  <DataType>2</DataType>
+  <IndexType>2</IndexType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item9_item0_item7>
+
+
+<DataModels_item1_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>material_picture</Name>
+  <Caption>3.1、图片表（material_picture）</Caption>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <GraphDesc>Left=6.00
+Top=474.00</GraphDesc>
+</DataModels_item1_item0_item10>
+
+
+<DataModels_item1_item0_item10_item0>
+  <Count>11</Count>
+</DataModels_item1_item0_item10_item0>
+
+
+<DataModels_item1_item0_item10_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>Id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item1>
+
+
+<DataModels_item1_item0_item10_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>Pid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父编号</DisplayName>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item2>
+
+
+<DataModels_item1_item0_item10_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>Rid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>关联编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>3</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item3>
+
+
+<DataModels_item1_item0_item10_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>Name</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>255</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item4>
+
+
+<DataModels_item1_item0_item10_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>Memo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>注释</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item5>
+
+
+<DataModels_item1_item0_item10_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>TypeName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>类名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item6>
+
+
+<DataModels_item1_item0_item10_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>CreatorId</Name>
+  <Memo>当前用户ID</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>创建人编号</DisplayName>
+  <DataType>2</DataType>
+  <IndexType>2</IndexType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item7>
+
+
+<DataModels_item1_item0_item10_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <Name>CreatorName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <DisplayName>创建人姓名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item8>
+
+
+<DataModels_item1_item0_item10_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>CreateDate</Name>
+  <Memo>默认为当前时间</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <DisplayName>创建日期</DisplayName>
+  <DataType>4</DataType>
+  <DefaultValue>sysdate</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item9>
+
+
+<DataModels_item1_item0_item10_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>DataLevel</Name>
+  <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <DisplayName>数据级别</DisplayName>
+  <DataType>6</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item10>
+
+
+<DataModels_item1_item0_item10_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>OrderNo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:09:05</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <DisplayName>排序号</DisplayName>
+  <DataType>3</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item10_item0_item11>
+
+
+<DataModels_item1_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>12</ID>
+  <Name>material_video</Name>
+  <Caption>3.2、视频表（material_video）</Caption>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <GraphDesc>Left=1060.00
+Top=310.00</GraphDesc>
+</DataModels_item1_item0_item11>
+
+
+<DataModels_item1_item0_item11_item0>
+  <Count>11</Count>
+</DataModels_item1_item0_item11_item0>
+
+
+<DataModels_item1_item0_item11_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>Id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item1>
+
+
+<DataModels_item1_item0_item11_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>Pid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父编号</DisplayName>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item2>
+
+
+<DataModels_item1_item0_item11_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>Rid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>关联编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>3</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item3>
+
+
+<DataModels_item1_item0_item11_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>Name</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>255</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item4>
+
+
+<DataModels_item1_item0_item11_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>Memo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>注释</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item5>
+
+
+<DataModels_item1_item0_item11_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>TypeName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>类名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item6>
+
+
+<DataModels_item1_item0_item11_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>CreatorId</Name>
+  <Memo>当前用户ID</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>创建人编号</DisplayName>
+  <DataType>2</DataType>
+  <IndexType>2</IndexType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item7>
+
+
+<DataModels_item1_item0_item11_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <Name>CreatorName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <DisplayName>创建人姓名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item8>
+
+
+<DataModels_item1_item0_item11_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>CreateDate</Name>
+  <Memo>默认为当前时间</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <DisplayName>创建日期</DisplayName>
+  <DataType>4</DataType>
+  <DefaultValue>sysdate</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item9>
+
+
+<DataModels_item1_item0_item11_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>DataLevel</Name>
+  <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <DisplayName>数据级别</DisplayName>
+  <DataType>6</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item10>
+
+
+<DataModels_item1_item0_item11_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>OrderNo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:10:32</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <DisplayName>排序号</DisplayName>
+  <DataType>3</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item11_item0_item11>
+
+
+<DataModels_item1_item0_item12>
+  <CTVER>43543230</CTVER>
+  <ID>13</ID>
+  <Name>material_article</Name>
+  <Caption>3.3、文章表（material_article）</Caption>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>12</OrderNo>
+  <GraphDesc>Left=465.00
+Top=410.00</GraphDesc>
+</DataModels_item1_item0_item12>
+
+
+<DataModels_item1_item0_item12_item0>
+  <Count>11</Count>
+</DataModels_item1_item0_item12_item0>
+
+
+<DataModels_item1_item0_item12_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>Id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item1>
+
+
+<DataModels_item1_item0_item12_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>Pid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父编号</DisplayName>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item2>
+
+
+<DataModels_item1_item0_item12_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>Rid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>关联编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>3</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item3>
+
+
+<DataModels_item1_item0_item12_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>Name</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>255</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item4>
+
+
+<DataModels_item1_item0_item12_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>Memo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>注释</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item5>
+
+
+<DataModels_item1_item0_item12_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>TypeName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>类名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item6>
+
+
+<DataModels_item1_item0_item12_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>CreatorId</Name>
+  <Memo>当前用户ID</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>创建人编号</DisplayName>
+  <DataType>2</DataType>
+  <IndexType>2</IndexType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item7>
+
+
+<DataModels_item1_item0_item12_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <Name>CreatorName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <DisplayName>创建人姓名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item8>
+
+
+<DataModels_item1_item0_item12_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>CreateDate</Name>
+  <Memo>默认为当前时间</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <DisplayName>创建日期</DisplayName>
+  <DataType>4</DataType>
+  <DefaultValue>sysdate</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item9>
+
+
+<DataModels_item1_item0_item12_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>DataLevel</Name>
+  <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <DisplayName>数据级别</DisplayName>
+  <DataType>6</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item10>
+
+
+<DataModels_item1_item0_item12_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>OrderNo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:07</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <DisplayName>排序号</DisplayName>
+  <DataType>3</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item12_item0_item11>
+
+
+<DataModels_item1_item0_item13>
+  <CTVER>43543230</CTVER>
+  <ID>14</ID>
+  <Name>label_info</Name>
+  <Caption>4.1、标签表（label_info）</Caption>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>13</OrderNo>
+  <GraphDesc>Left=815.00
+Top=410.00</GraphDesc>
+</DataModels_item1_item0_item13>
+
+
+<DataModels_item1_item0_item13_item0>
+  <Count>11</Count>
+</DataModels_item1_item0_item13_item0>
+
+
+<DataModels_item1_item0_item13_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>Id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item1>
+
+
+<DataModels_item1_item0_item13_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>Pid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父编号</DisplayName>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item2>
+
+
+<DataModels_item1_item0_item13_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>Rid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>关联编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>3</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item3>
+
+
+<DataModels_item1_item0_item13_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>Name</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>255</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item4>
+
+
+<DataModels_item1_item0_item13_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>Memo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>注释</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item5>
+
+
+<DataModels_item1_item0_item13_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>TypeName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>类名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item6>
+
+
+<DataModels_item1_item0_item13_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>CreatorId</Name>
+  <Memo>当前用户ID</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>创建人编号</DisplayName>
+  <DataType>2</DataType>
+  <IndexType>2</IndexType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item7>
+
+
+<DataModels_item1_item0_item13_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <Name>CreatorName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <DisplayName>创建人姓名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item8>
+
+
+<DataModels_item1_item0_item13_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>CreateDate</Name>
+  <Memo>默认为当前时间</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <DisplayName>创建日期</DisplayName>
+  <DataType>4</DataType>
+  <DefaultValue>sysdate</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item9>
+
+
+<DataModels_item1_item0_item13_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>DataLevel</Name>
+  <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <DisplayName>数据级别</DisplayName>
+  <DataType>6</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item10>
+
+
+<DataModels_item1_item0_item13_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>OrderNo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:31</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <DisplayName>排序号</DisplayName>
+  <DataType>3</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item13_item0_item11>
+
+
+<DataModels_item1_item0_item14>
+  <CTVER>43543230</CTVER>
+  <ID>15</ID>
+  <Name>user_info</Name>
+  <Caption>5.1、用户表（user_info）</Caption>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>14</OrderNo>
+  <GraphDesc>Left=1095.00
+Top=610.00</GraphDesc>
+</DataModels_item1_item0_item14>
+
+
+<DataModels_item1_item0_item14_item0>
+  <Count>11</Count>
+</DataModels_item1_item0_item14_item0>
+
+
+<DataModels_item1_item0_item14_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>Id</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item1>
+
+
+<DataModels_item1_item0_item14_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>Pid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父编号</DisplayName>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item2>
+
+
+<DataModels_item1_item0_item14_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>Rid</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>关联编号</DisplayName>
+  <DataType>2</DataType>
+  <KeyFieldType>3</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item3>
+
+
+<DataModels_item1_item0_item14_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>Name</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>255</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item4>
+
+
+<DataModels_item1_item0_item14_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>Memo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>注释</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item5>
+
+
+<DataModels_item1_item0_item14_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>TypeName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>类名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item6>
+
+
+<DataModels_item1_item0_item14_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>CreatorId</Name>
+  <Memo>当前用户ID</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>创建人编号</DisplayName>
+  <DataType>2</DataType>
+  <IndexType>2</IndexType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item7>
+
+
+<DataModels_item1_item0_item14_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <Name>CreatorName</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <DisplayName>创建人姓名</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item8>
+
+
+<DataModels_item1_item0_item14_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>CreateDate</Name>
+  <Memo>默认为当前时间</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <DisplayName>创建日期</DisplayName>
+  <DataType>4</DataType>
+  <DefaultValue>sysdate</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item9>
+
+
+<DataModels_item1_item0_item14_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>DataLevel</Name>
+  <Memo>0正常 1审核中 2被否决 -1已删除 -2草稿</Memo>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <DisplayName>数据级别</DisplayName>
+  <DataType>6</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item10>
+
+
+<DataModels_item1_item0_item14_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>OrderNo</Name>
+  <CreateDate>2019/6/30 星期日 下午 9:11:55</CreateDate>
+  <ModifyDate>1899/12/30 星期六</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <DisplayName>排序号</DisplayName>
+  <DataType>3</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item14_item0_item11>
 
 
 </CTOXML>
