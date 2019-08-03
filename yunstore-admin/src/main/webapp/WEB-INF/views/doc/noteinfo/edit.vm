@@ -1,0 +1,68 @@
+<div>
+
+	<form class="layui-form layui-form-pane">
+		<!-- 标题 -->
+		<div class="layui-form-item" style="margin-top:15px;">
+			<label class="layui-form-label">标题</label>
+			<div class="layui-input-inline">
+				<input type="text" name="noteinfo.title" lay-verify="required" value="#(noteinfo.title)"
+					placeholder="请输入笔记标题" autocomplete="off" class="layui-input">
+			</div>
+
+			<input type="hidden" name="noteinfo.id" lay-verify="required" value="#(noteinfo.id)"
+					autocomplete="off" class="layui-input">
+			<div>
+				<button class="layui-btn" lay-submit lay-filter="save">保存</button>
+				<button type="reset" class="layui-btn layui-btn-danger"
+					id="resetBtn">重置</button>
+			</div>
+
+		</div>
+			
+		 <!-- 加载编辑器的容器 -->
+    	<script id="container" name="noteinfo.content" type="text/plain"></script>
+	</form>
+
+    
+    
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+    	var content = '#(noteinfo.content)';
+        var ue = UE.getEditor('container');
+      	/**对编辑器的操作最好在编辑器ready之后再做*/
+        ue.ready(function(){
+        	 /**设置编辑器高度 editor.setHeight(number);*/
+            ue.setHeight(600);
+            /**设置读取本地保存数据*/
+            ue.execCommand('drafts');
+        	/**清空草稿箱的内容*/
+        	//ue.execCommand("clearlocaldata");
+            /**设置编辑器的内容*/
+            ue.setContent(content);
+            //获取html内容，返回: <p>hello</p>
+            //var html = ue.getContent();
+            //获取纯文本内容，返回: hello
+            //var txt = ue.getContentTxt();
+            /**提交表单editor.execCommand( 'autosubmit' );*/
+        });
+      	
+      	layui.use(['form'], function(){
+      		var form = layui.form;
+      		
+      		form.on('submit(save)', function(data){
+      			
+      			var res = systemJs.ajax('/doc/noteinfo/update' ,'json' ,'post' ,data.field, function(){
+      				noteinfo.list();
+      				}
+      			
+      			);
+      			
+      			return res;
+      		});
+      		
+      	});
+      	
+      	
+    </script>
+
+</div>

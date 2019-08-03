@@ -1,0 +1,144 @@
+
+                    	<!-- 订单管理列表  -->
+                        <!-- 数据表格模板 start -->
+                        <div class="layui-card-body layui-table-body layui-table-main">
+                            <table class="layui-table" lay-filter="table_filter">
+                                <thead>
+                                  <tr>
+                                    <th lay-data="{field:'checkbox', type: 'checkbox'}"></th>
+                                    <th lay-data="{field:'out_trade_no', width:150}">订单号</th>
+                                    <th lay-data="{field:'order_name', width:100}">订单名称</th>
+                                    <th lay-data="{field:'buyer_real_name', width:100}">付款方</th>
+                                    <th lay-data="{field:'real_name', width:100}">收款方</th>
+                                    <th lay-data="{field:'total_amount', width:100}">付款金额</th>
+                                    <th lay-data="{field:'pay_source', width:100}">支付方式</th>
+                                    <th lay-data="{field:'pay_status', width:100}">付款状态</th>
+                                    <th lay-data="{field:'pay_time', width:200}">付款时间</th>
+                                    <th lay-data="{field:'options', width:300}">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                
+                                	 #if(page.getList().size() > 0 )
+                                		#for(d : page.getList())
+                                			<tr>
+                                			
+                                				<td>#(d.id)</td>
+                                   				 
+                                   				 <td>#(d.out_trade_no ??)</td>
+                                   				 
+                                   				 <td>#(d.order_name ??)</td>
+                                   				 
+                                   				 <td>#(d.buyer_real_name ??)</td>
+                                   				 
+                                   				 <td>#(d.real_name ??)</td>
+                                   				 
+                                   				 <td>#(d.total_amount ??)</td>
+                                   				 
+                                   				 <td>
+                                   				 #if(d.pay_source?? == 1)
+                                   				 	<img style="width:70px;" src="#(resPath)default/img/alipay_icon.png">
+                                   				 	#elseif(d.pay_source?? == 2)
+                                   				 	微信支付
+                                   				 	#else
+                                   				 	第三方支付
+                                   				 #end
+                                   				 </td>
+                                   				 
+                                   				 <td>
+                                   				 	#if(d.pay_status?? == 1)
+                                   				 		<span style="color:green">已付款</span>
+                                   				 		#elseif(d.pay_status?? == 2)
+                                   				 		<span style="color: red">待付款</span>
+                                   				 		#else
+                                   				 		未知状态
+                                   				 	#end
+                                   				 </td>
+                                   				 
+                                   				 <td>#date(d.pay_time ??, 'yyyy-MM-dd HH:mm:ss')</td>
+                                   				  
+                                   				 
+                                   				 <td class="td-manage">
+                                   				 	#if(d.pay_status ?? == 2)
+                                   				 		<a title="去付款"  onclick="aliPay.conPay(#(d.id), #(d.out_trade_no), '#(d.order_name)', #(d.total_amount));" class="layui-btn layui-btn-sm layui-btn-normal" href="javascript:;">
+                                        				<i class="layui-icon">&#xe60e;</i>去付款</a>
+                                        				<a title="取消订单"  onclick="" class="layui-btn layui-btn-sm layui-btn-normal" href="javascript:;">
+                                        				<i class="layui-icon">&#xe642;</i>取消订单</a>
+                                   				 	#else
+                                   				 		<a title="申请退款"  onclick="" class="layui-btn layui-btn-sm layui-btn-normal" href="javascript:;">
+                                        				<i class="layui-icon">&#xe642;</i>申请退款</a>
+                                   				 	#end
+                                   				 </td>
+                                   				 
+                                			</tr>
+                                		#end
+                                	#end
+                                	
+                                </tbody>
+                            </table>
+                        </div>
+                         <!-- 数据表格模板 end -->
+                         
+                         
+                         <!-- 分页控件模板 start -->
+                         
+                        <div class="layui-card-body ">
+                            <div id="demo"></div>
+                        </div>
+                        
+                         <!-- 分页控件模板 end -->
+                        
+     	<script>
+     	
+     		$(function(){
+     			
+     			layui.use(['laypage', 'form', 'table'], function(){
+     				var laypage = layui.laypage
+     				,form = layui.form
+     				,table = layui.table;
+     				/* form.render('checkbox'); */
+     				 /**初始化分页控件*/
+         			laypage.render({
+         	    		elem: 'demo' //注意，这里的 test1 是 ID，不用加 # 号
+         	   		 	,count: #(page.totalRow) //数据总数，从服务端得到
+         	   		 	,limit: #(page.pageSize)
+         	   		 	,curr:#(page.pageNumber)
+         	   		 	,layout:['count', 'prev', 'page', 'next', 'limit', 'skip', 'refresh']
+         			   	,theme: '#c00'//主题
+         			   	,page:true
+         				,hash: true
+         				,jump: function(obj, first){
+         					/**分页回调*/
+         					//obj包含了当前分页的所有参数，比如：
+         				    //console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+         				    //console.log(obj.limit); //得到每页显示的条数
+         				    /**首次不执行*/
+         				    if(!first){
+         				    	aliPay.pageNumber = obj.curr;
+         				    	aliPay.pageSize = obj.limit;
+         				    	var index = layer.load(3, {
+    								shade: 0.3
+    							});
+         				    	aliPay.list();
+         				    	layer.close(index);
+         				    }
+         				}
+         	  		});
+     				 
+         			 table.init('table_filter', {
+         				 limit: #(page.pageSize)
+         				 , height:'500px'
+         				 , loading: true
+         				 , text: {
+         				    none: '暂无相关数据'
+         				  }
+         				 });
+     				 
+     			});
+     			
+     			
+     			
+     		})	
+     	
+     	</script>
+    

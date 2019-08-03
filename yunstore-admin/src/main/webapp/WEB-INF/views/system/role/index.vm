@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="x-role-sm">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+       #include('../../common/header.vm')
+       
+    </head>
+    <body>
+    
+        <div class="x-nav">
+          <span class="layui-breadcrumb">
+            <a href=""></a>
+            <a href="">系统管理</a>
+            <a>
+              <cite>角色管理</cite></a>
+          </span>
+          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+        </div>
+        
+        
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                    
+                    <!-- 操作栏模板 start-->
+                        <div class="layui-card-body ">
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input type="text" name="roleName" id="roleName" placeholder="请输入角色名称" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <button class="layui-btn"  onclick="role_manage.list()"><i class="layui-icon">&#xe615;</i></button>
+                                </div>
+                        </div>
+                        
+                        <script type="text/html" id="toolbarDemo">
+							 <div class="layui-card-header">
+                            	<button class="layui-btn layui-btn-danger layui-btn-disabled" disabled lay-event="getCheckData"><i class="layui-icon"></i>批量删除</button>
+                            	<button class="layui-btn" onclick="role_manage.add()"><i class="layui-icon"></i>添加</button>
+                        	</div>
+						</script>
+                        
+                        <!-- 操作栏模板 end-->
+                        
+                        
+                        <!-- 数据表格模板 start -->
+                        <div id="page_list">
+                            
+                        </div>
+                         <!-- 数据表格模板 start -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+    <script>
+      layui.use(['table'], function(){
+        var table = layui.table;
+
+      });
+
+
+      
+      role_manage = {};
+      
+      role_manage.pageNumber = 1;
+      role_manage.pageSize = 10;
+      
+      role_manage.list = function(){
+    	  $.ajax('/role/list', {
+        	  type: 'post',
+        	  data:{pageNumber: role_manage.pageNumber
+        		  , pageSize: role_manage.pageSize
+        		  , roleName : $('#roleName').val()  
+        	  },
+        	  dataType: 'html',
+        	  success: function(data){
+        		  $('#page_list').empty();
+        		  $('#page_list').html(data);
+        	  }
+          });
+      }
+      
+      role_manage.list();
+      
+      
+      role_manage.add = function(){
+    	  $.ajax('/role/addView', {
+    		  type: 'get'
+    		  ,dateType : 'html'
+    		  ,success: function(data){
+    			  role_manage.addView(data);
+    		  }
+    	  });
+      }
+      
+      role_manage.edit = function(id){
+    	  $.ajax('/role/editView', {
+    		  type: 'get'
+    		  ,data: {id: id}
+    		  ,dateType : 'html'
+    		  ,success: function(data){
+    			  role_manage.editView(data);
+    		  }
+    	  });
+      }
+      
+      
+      role_manage.doOper = function(index, id){
+    	  
+    	  var nodes = zTree.getCheckedNodes(true);
+    		 var arr = new Array();
+    		 for (var i = 0; i < nodes.length; i++) {
+    			if (nodes[i].code) {
+    				arr.push(nodes[i].id);
+    			}
+    		}
+    		 $.ajax('/role/doOper', {
+    			 type: 'post',
+    			 data:{roleId: id ,operIds:arr.toString()},
+    			 dateType: 'json',
+    			 success: function(data){
+    				 if(data.code == 0){
+    					 systemJs.okLayer(data.message);
+    					 layer.close(index);
+    				 }else{
+    					 systemJs.errorLayer(data.message);
+    				 }
+    			 }
+    		 });
+    		 
+      }
+      
+      role_manage.operSet = function(id){
+    	  $.ajax('/role/operView', {
+    		  type: 'get'
+    		  ,data: {id: id}
+    		  ,dateType : 'html'
+    		  ,success: function(data){
+    			  role_manage.operView(data, id);
+    		  }
+    	  });
+      }
+      
+      role_manage.operView = function(data, id){
+			var index = layer.open({
+		        type: 1
+		        ,title: ['权限设置']
+		        ,area: ['60%', '60%']
+				,id: 'oper'
+		        ,shade: 0.3
+		        ,maxmin: true
+		        ,anim: 1
+		        ,closeBtn: true
+		        ,content: data
+		        ,btn: ['保存','取消']
+		        ,yes: function(){
+		        	 role_manage.doOper(index, id);
+		        }
+		      });
+	}
+      
+      
+      role_manage.addView = function(data){
+				var index = layer.open({
+			        type: 1
+			        ,title: ['添加角色']
+			        ,area: ['60%', '60%']
+					,id: 'addAmin'
+			        ,shade: 0.3
+			        ,maxmin: true
+			        ,anim: 1
+			        ,closeBtn: true
+			        ,content: data
+			        ,btn: ['取消']
+			        ,yes: function(){
+			        	layer.close(index);
+			        }
+			      });
+		}
+      
+      role_manage.editView = function(data){
+    	  var index = layer.open({
+		        type: 1
+		        ,title: ['编辑角色']
+		        ,area: ['60%', '60%']
+				,id: 'editAmin'
+		        ,shade: 0.3
+		        ,maxmin: true
+		        ,anim: 1
+		        ,closeBtn: true
+		        ,content: data
+		        ,btn: ['取消']
+		        ,yes: function(){
+		        	layer.close(index);
+		        }
+		      });
+      }
+      
+      
+      
+      
+      /*角色删除*/
+      role_manage.del = function(id, name){
+    	  
+    	  layer.confirm('确认要删除角色【'+name+'】吗？', {icon: 3, title:'提示'},function(index){
+    		  alert('no permission');
+	        });
+    	  
+      }
+      
+    </script>
+</html>

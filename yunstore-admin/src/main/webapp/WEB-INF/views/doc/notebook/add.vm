@@ -1,0 +1,58 @@
+<!-- 添加笔记本 -->
+<div>
+
+ #include('../../common/header.vm')
+
+<form class="layui-form layui-form-pane" id="edite_form" lay-filter="example">
+		
+		<!-- 笔记本标题 -->
+		<div class="layui-form-item">
+			<label class="layui-form-label"><span style="color:red;">*</span>笔记本名称</label>
+			<div class="layui-input-inline">
+				<input type="text" name="notebook.title" lay-verify="required"
+					placeholder="请输笔记本名称" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		
+		
+		<!-- 笔记本简介 -->
+		<div class="layui-form-item layui-form-text" style="width:50%;">
+			<label class="layui-form-label">笔记本简介</label>
+			<div class="layui-input-block">
+				<textarea placeholder="请输入简介" name="notebook.des" class="layui-textarea"></textarea>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="save">保存</button>
+				<button type="reset" class="layui-btn layui-btn-primary" id="resetBtn">重置</button>
+			</div>
+		</div>
+		
+	</form>
+
+</div>
+
+<script type="text/javascript">
+$(function(){
+	
+	layui.use(['form'], function(){
+		var form = layui.form;
+		
+		form.on('submit(save)', function(data){
+			console.log('save'+ data);
+			var res = systemJs.ajax('/doc/notebook/save' ,'json' ,'post' ,data.field, function(){
+					$('#resetBtn').click();
+				}
+			);
+			
+			return res;
+		});
+		
+	});
+	
+})
+</script>
+

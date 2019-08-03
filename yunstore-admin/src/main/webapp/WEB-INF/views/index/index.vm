@@ -1,0 +1,532 @@
+<!doctype html>
+<html class="x-admin-sm">
+    <head>
+        <meta charset="UTF-8">
+        <title>#(systemName)</title>
+        <meta name="renderer" content="webkit|ie-comp|ie-stand">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        
+       #include('../common/header.vm')
+       
+        <script>
+            // 是否开启刷新记忆tab功能
+            // var is_remember = false;
+        </script>
+        
+    </head>
+    <body class="index">
+    <!-- notice list -->
+    <div style="display:none;" id="noticeList">
+		<div class="layui-col-md6">
+
+			<div class="layui-tab" style="width:150%;" lay-filter="noticeTab">
+				<ul class="layui-tab-title">
+					<li class="layui-this">未读消息</li>
+					<li>已读消息</li>
+				</ul>
+				<div class="layui-tab-content" style="height: 100px;">
+					<div class="layui-tab-item layui-show" >
+						<div class="layui-card-header"><a class="layui-btn" id="allRead">全部标为已读</a></div>
+						<div class="layui-card-body" id="noticeList_info" style="width:460px;"></div>
+					</div>
+					<div class="layui-tab-item">
+						<div class="layui-card-body" id="noticeList_read" style="width:460px;"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+        <!-- 顶部开始 -->
+        <div class="container">
+            <div class="logo">
+                <a href="#(BATH_PATH)">【云库】资源管理系统</a></div>
+            <div class="left_open">
+                <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
+            </div>
+            
+          	<ul class="layui-nav left fast-add" lay-filter="">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">+快捷操作</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a onclick="alert('no permission');">
+                                <i class="iconfont">&#xe6a2;</i>弹出最大化</a></dd>
+                        <dd>
+                            <a onclick="alert('no permission');">
+                                <i class="iconfont">&#xe6a8;</i>弹出自动宽高</a></dd>
+                        <dd>
+                            <a onclick="alert('no permission');">
+                                <i class="iconfont">&#xe6a8;</i>弹出指定宽高</a></dd>
+                        <dd>
+                            <a onclick="alert('no permission');">
+                                <i class="iconfont">&#xe6b8;</i>在tab打开</a></dd>
+                        <dd>
+                            <a onclick="alert('no permission');">
+                                <i class="iconfont">&#xe6b8;</i>在tab打开刷新</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            
+            <ul class="layui-nav right" lay-filter="">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                    <!-- 头像 -->
+                    	<img src="#(sessionAdmin.head_url)" class="layui-nav-img" id="index_head">
+                    </a>
+                    <dl class="layui-nav-child">
+                        <!-- 二级菜单 -->
+                        <dd>
+                            <a onclick="admin.info(#(sessionAdmin.id));">个人信息</a></dd>
+                        <dd>
+                            <a onclick="admin.resetPwd(#(sessionAdmin.id))">重置密码</a></dd>
+                        <dd>
+                            <a href="/out">退出</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item to-index">
+                    <a><i class="layui-icon layui-icon-username"></i><span id="login_name">
+                    	#if(sessionAdmin.login_name.length() > 5)
+                    		#(sessionAdmin.login_name.substring(0, 5) + "...")
+                    	#else
+                    		#(sessionAdmin.login_name)	
+                    	#end
+                    </span></a>
+                    </li>
+                    
+                     <li class="layui-nav-item to-index">
+                    	<a id="noticeCount"></a><span class="layui-badge-dot" id="notice_dot"></span>
+                    </li>
+            </ul>
+        </div>
+        <!-- 顶部结束 -->
+        <!-- 中部开始 -->
+        <!-- 左侧菜单开始 -->
+        <div class="left-nav">
+            <div id="side-nav">
+                <ul id="nav">
+					
+					<li>
+                        <a href="javascript:;">
+                            <i class="left-nav-li layui-icon layui-icon-tabs" lay-tips="笔记本"></i>
+                            <cite>笔记本</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                        <ul class="sub-menu">
+						
+                            <li>
+                                <a onclick="xadmin.add_tab('我的笔记本', '/doc/notebook/index')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>我的笔记本</cite></a>
+                            </li>
+                 			
+                 			<li>
+                 				<a onclick="xadmin.add_tab('新增笔记本', '/doc/notebook/addView')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>新增笔记本</cite></a>
+                 			</li>
+                 			
+                 			<li>
+                 				<a onclick="xadmin.add_tab('我的笔记','/doc/noteinfo/index')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>我的笔记</cite></a>
+                 			</li>
+                 			
+                 			<li>
+                 				<a onclick="xadmin.add_tab('写笔记','/doc/noteinfo/addView')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>写笔记</cite></a>
+                 			</li>
+							
+                        </ul>
+                    </li>
+					
+					<li>
+					
+                        <a href="javascript:;">
+                            <i class="iconfont left-nav-li layui-icon layui-icon-file-b" lay-tips="素材管理"></i>
+                            <cite>素材管理</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a onclick="xadmin.add_tab('图片库','/material/picture')">
+                                    <i class="iconfont layui-icon layui-icon-picture"></i>
+                                    <cite>图片库</cite></a>
+                            </li>
+                            <li>
+                                <a onclick="xadmin.add_tab('音乐库','/material/music');">
+                                    <i class="iconfont layui-icon layui-icon-headset"></i>
+                                    <cite>音乐库</cite></a>
+                            </li>
+                            <li>
+                                <a onclick="xadmin.add_tab('视频库','/material/video');">
+                                    <i class="iconfont layui-icon layui-icon-video"></i>
+                                    <cite>视频库</cite></a>
+                            </li>
+                            
+             
+                           
+                        </ul>
+                    </li>
+					
+					<li >
+                        <a href="javascript:;">
+                            <i class="iconfont left-nav-li layui-icon layui-icon-note" lay-tips="标签"></i>
+                            <cite>标签</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                        <ul class="sub-menu">
+						
+                            <li>
+                                <a onclick="xadmin.add_tab('我的标签','/label/labelinfo');">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>我的标签</cite></a>
+									<ul class="sub-menu">
+                                    
+                                </ul>
+                            </li>
+                 
+							
+                        </ul>
+                    </li>
+					
+					<li>
+					    <a href="javascript:;">
+					        <i class="iconfont left-nav-li layui-icon layui-icon-set" lay-tips="系统管理"></i>
+					        <cite>系统管理</cite>
+					        <i class="iconfont nav_right"></i></a>
+					    <ul class="sub-menu">
+						
+					        <li>
+					            <a onclick="xadmin.add_tab('账户管理','admin/manage/index')">
+					                <i class="iconfont">&#xe6a7;</i>
+					                <cite>账户管理</cite></a>
+									<ul class="sub-menu">
+					                
+					            </ul>
+					        </li>
+							
+					         <li>
+					            <a onclick="alert('no permission');">
+					                <i class="iconfont">&#xe6a7;</i>
+					                <cite>权限管理</cite></a>
+					        		<ul class="sub-menu">
+					                
+					            </ul>
+					        </li> 
+									
+							 <li>
+							    <a onclick="xadmin.add_tab('角色管理','role/index')">
+							        <i class="iconfont">&#xe6a7;</i>
+							        <cite>角色管理</cite></a>
+									<ul class="sub-menu">
+							        
+							    </ul>
+							</li>
+							
+							<li>
+							    <a onclick="xadmin.add_tab('支付宝接口测试','aliPay/index')">
+							        <i class="iconfont">&#xe6a7;</i>
+							        <cite>支付宝接口测试</cite></a>
+									<ul class="sub-menu">
+							        
+							    </ul>
+							</li>     
+							
+					    </ul>
+					</li>
+					
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="x-slide_left"></div> -->
+        <!-- 左侧菜单结束 -->
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+            <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+                <ul class="layui-tab-title">
+                    <li class="home">
+                        <i class="layui-icon">&#xe68e;</i>我的桌面</li></ul>
+                <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">
+                    <dl>
+                        <dd data-type="this">关闭当前</dd>
+                        <dd data-type="other">关闭其它</dd>
+                        <dd data-type="all">关闭全部</dd></dl>
+                </div>
+                <!-- welcome -->
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <iframe src='welcome' id="main_iframe" frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                    </div>
+                </div>
+                <div id="tab_show"></div>
+            </div>
+        </div>
+        <div class="page-content-bg"></div>
+        
+        <style id="theme_style"></style>
+        <!-- 右侧主体结束 -->
+        <!-- 中部结束 -->
+        <script>
+       		$(function(){
+       			admin = {};
+       			
+       			notice = {};
+       			
+       			admin.info = function(adminId){
+       				 $.ajax({
+       					url: '/admin/infoView',
+       					type: 'get',
+       					dataType: 'html',
+       					data:{'id': adminId},
+       					success:function(data){
+       						admin.open(data, adminId);
+       					}
+       				}); 
+       			}
+       			
+       			admin.open = function(data, adminId){
+       				var index = layer.open({
+       			        type: 1
+       			        ,title: ['个人信息'] //不显示标题栏
+       			        ,closeBtn: true
+       			        ,maxmin:true
+       			        ,area: '500px'
+       			        ,shade: 0.3
+       			        ,id: 'adminInfo' //设定一个id，防止重复弹出
+       			        ,btn: ['编辑信息', '关闭']
+       			        ,btnAlign: 'c'
+       			        ,moveType: 1 //拖拽模式，0或者1
+       			        ,content: data
+       			        ,yes: function(index, layero){
+       			         //按钮【按钮一】的回调
+       			         	layer.close(index);
+       			            admin.edit(adminId);
+       			     		}
+       					,btn2: function(){
+       						
+       					}
+       			       
+       				});
+       			}
+       			
+       			admin.editView = function(data){
+       				var index = layer.open({
+       			        type: 1
+       			        ,title: ['编辑个人信息']
+       			        ,area: ['60%', '60%']
+       					,id: 'editAminInfo'
+       			        ,shade: 0.3
+       			        ,maxmin: true
+       			        ,anim: 1
+       			        ,closeBtn: true
+       			        ,content: data
+       			        ,btn: ['取消']
+       			        ,yes: function(){
+       			        	layer.close(index);
+       			        }
+       			      });
+      			}
+       			
+       			admin.edit = function(adminId){
+      				 $.ajax({
+      					url: '/admin/editView',
+      					type: 'get',
+      					dataType: 'html',
+      					data:{'id': adminId},
+      					success:function(data){
+      						admin.editView(data);
+      					}
+      				}); 
+      			}
+       			
+       			admin.resetPwd = function(adminId){
+       			 $.ajax({
+   					url: '/admin/resetPwdView',
+   					type: 'get',
+   					dataType: 'html',
+   					data:{'id': adminId},
+   					success:function(data){
+   						admin.resetView(data);
+   					}
+   				}); 
+       			}
+       			
+       			admin.resetView = function(data){
+       				var index = layer.open({
+       			        type: 1
+       			        ,title: ['重置密码']
+       			        ,area: ['30%', '32%']
+       					,id: 'resetPwd'
+       			        ,shade: 0.3
+       			        ,maxmin: true
+       			        ,anim: 1
+       			        ,closeBtn: true
+       			        ,content: data
+       			        ,btn: ['取消']
+       			        ,yes: function(){
+       			        	layer.close(index);
+       			        }
+       			      });
+      			}
+       			
+       			notice.pageNumber = 1;
+       			notice.pageNumber_r = 1;
+       			notice.pageSize = 5;
+       			
+       			notice.list = function(status, pageNumber, pageSize){
+       				if(typeof(status) == 'undefined'){
+       					status = 0;
+       				}
+       				if(typeof(pageNumber) == 'undefined'){
+       					pageNumber = notice.pageNumber;
+       					if(status == 1){
+       						pageNumber = notice.pageNumber_r;
+       					}
+       				}else{
+       					notice.pageNumber = pageNumber;
+       					if(status == 1){
+       						pageNumber = notice.pageNumber_r;
+       					}
+       				}
+       				
+       				if(typeof(pageSize) == 'undefined'){
+       					pageSize = 5;
+       				}
+					
+       				
+       			 $.ajax({
+    					url: '/notice/noticeList',
+    					type: 'get',
+    					dataType: 'json',
+    					data:{'pageNumber': pageNumber, 'pageSize': pageSize, status: status},
+    					success:function(data){
+    						if(status == 0){
+    							if(data.totalRow == 0){
+    								$('#notice_dot').addClass('layui-bg-green');
+    							}else{
+    								$('#notice_dot').removeClass('layui-bg-green');
+    							}
+    							$('#noticeCount').text('消息：'+data.totalRow);
+    							var div = $('#noticeList_info');
+        						var list = data.list;
+        						div.empty();
+        						if(list.length > 0){
+        							$('#allRead').show('slow');
+        							for(var i=0; i< list.length; i++){
+            							div.append('<a class="layui-col-md9" style="color:white; font-size:10px;background:#5FB878;margin-top:5px;">'+(i+1)+'、'+list[i].content+ '&nbsp&nbsp[' +list[i].created_at +']<a class="layui-btn-sm layui-col-md3" href="javascript:void(0);" onclick="notice.mark('+list[i].id+','+ 1 +');">标为已读<a></a></br>')
+        							}
+        							if(data.totalPage > pageNumber && pageNumber > 1){
+        								div.append('<a class="layui-col-md4" style="font-size:10px;margin-top:5px;" onclick="notice.prePage();" href="javascript:;">上一页</a>')
+        								div.append('<a class="layui-col-md4" style="font-size:10px, color: #999;margin-top:5px;" href="javascript:;">第'+pageNumber+'页</a>')
+        								div.append('<a class="layui-col-md4" style="font-size:10px;margin-top:5px;" onclick="notice.nextPage();" href="javascript:;">下一页</a>')
+        							}else if(data.totalPage == pageNumber && pageNumber > 1){
+        								div.append('<a class="layui-col-md9" style="font-size:10px;margin-top:5px;" onclick="notice.prePage();" href="javascript:;">上一页</a>')
+        							}else if(data.totalPage > pageNumber && pageNumber == 1){
+        								div.append('<a class="layui-col-md6" style="font-size:10px;margin-top:5px;" onclick="notice.nextPage();" href="javascript:;">下一页</a>')
+        							}
+        						}else{
+        							$('#allRead').hide('slow');
+        							div.append('<a class="layui-col-md9" style="color:white; font-size:10px;background:#5FB878;margin-top:5px;">暂无未读消息</a>')
+        						}
+    						}else{
+    							var div = $('#noticeList_read');
+        						var list = data.list;
+        						div.empty();
+    							if(list.length > 0){
+        							for(var i=0; i< list.length; i++){
+            							div.append('<a class="layui-col-md9" style="color:white; font-size:10px;background:#5FB878;margin-top:5px;">'+(i+1)+'、'+list[i].content+ '&nbsp&nbsp[' +list[i].created_at +']</br>&nbsp&nbsp[处理时间：'+list[i].updated_at+']</a></br>')
+        							}
+        							if(data.totalPage > pageNumber && pageNumber > 1){
+        								div.append('<a class="layui-col-md4" style="font-size:10px;margin-top:5px;" onclick="notice.prePage(1);" href="javascript:;">上一页</a>')
+										div.append('<a class="layui-col-md4" style="font-size:10px, color: #999;margin-top:5px;" href="javascript:;">第'+pageNumber+'页</a>')
+        								div.append('<a class="layui-col-md4" style="font-size:10px;margin-top:5px;" onclick="notice.nextPage(1);" href="javascript:;">下一页</a>')
+        							}else if(data.totalPage == pageNumber && pageNumber > 1){
+        								div.append('<a class="layui-col-md9" style="font-size:10px;margin-top:5px;" onclick="notice.prePage(1);" href="javascript:;">上一页</a>')
+        							}else if(data.totalPage > pageNumber && pageNumber == 1){
+        								div.append('<a class="layui-col-md6" style="font-size:10px;margin-top:5px;" onclick="notice.nextPage(1);" href="javascript:;">下一页</a>')
+        							}
+        						}else{
+        							div.append('<a class="layui-col-md9" style="color:white; font-size:10px;background:#5FB878;margin-top:5px;">暂无已读消息</a>')
+        						}
+
+    						}
+    					}
+    				}); 
+       			}
+       			
+       			notice.list();
+       			
+       			/* setInterval(function(){
+       				notice.list();
+       				notice.list(1);
+       			}, 1000*5); */
+       			
+       			
+       			notice.show = function(){
+       				layer.open({
+       				  type: 1,
+       				  area: ['500px', '300px'],
+       				  shade: 0.3,
+       				  skin:'layui-layer-lan',
+       				  title: '消息', //不显示标题
+       				  content: $('#noticeList'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+       				  cancel: function(){
+       				    
+       				  }
+       				});
+       			}
+       			
+       			$('#noticeCount').click(function(){
+       				notice.show();
+       			});
+       			
+       			$('#allRead').click(function(){
+       				notice.markAll(1);
+       			});
+       			
+       			notice.mark = function(id, status){
+       				systemJs.ajax('/notice/update', 'json', 'post', {id: id, status: status}, function(){
+       					notice.list();
+       					});
+       			}
+       			
+       			notice.markAll = function(status){
+       				systemJs.ajax('/notice/update', 'json', 'post', {id: 0, status: status}, function(){
+       					notice.list();
+       					});
+       			}
+       			
+       			notice.nextPage = function(status){
+       				if(typeof(status) != 'undefined' && status == 1){
+       					notice.pageNumber_r = notice.pageNumber_r + 1;
+       				}else{
+       					notice.pageNumber = notice.pageNumber + 1;
+       				}
+       				notice.list(status);
+       			}
+       			
+       			notice.prePage = function(status){
+       				if(typeof(status) != 'undefined' && status == 1){
+       					notice.pageNumber_r = notice.pageNumber_r - 1;
+       				}else{
+       					notice.pageNumber = notice.pageNumber - 1;
+       				}
+       				notice.list(status);
+       			}
+       			
+       			layui.use(['element'], function(){
+       				var element = layui.element;
+       				
+       				element.on('tab(noticeTab)', function(data){
+       					if(data.index == 1){
+       						notice.list(1);
+       					}
+       					
+       				});
+       			});
+       			
+       		})
+		</script>
+    </body>
+
+</html>

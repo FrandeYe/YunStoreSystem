@@ -1,0 +1,78 @@
+
+<!-- 添加角色 -->
+
+<div>
+
+	<form class="layui-form layui-form-pane" id="edite_form">
+		
+		<!-- 用户名 -->
+		<div class="layui-form-item">
+			<label class="layui-form-label"><span style="color:red;">*</span>角色名称</label>
+			<div class="layui-input-inline">
+				<input type="text" name="role.role_name" lay-verify="required"
+					placeholder="角色名称" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		<!-- 状态 -->
+		<div class="layui-form-item" pane="" style="width:200px;">
+				<label class="layui-form-label">超级管理员</label>
+				<input type="hidden" name="role.super_flag" id="superFlag" value="0"
+						 class="layui-input">
+				<div class="layui-input-block">
+					<input type="checkbox" name="switch" lay-skin="switch" lay-filter="isable" lay-text="是|否">
+			</div>
+		</div>
+		
+		<!-- 签名，简介 -->
+		<div class="layui-form-item layui-form-text" style="width:50%;">
+			<label class="layui-form-label">角色描述</label>
+			<div class="layui-input-block">
+				<textarea name="role.remark" class="layui-textarea"></textarea>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="save">保存</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+		
+	</form>
+
+</div>
+
+<script type="text/javascript">
+
+	systemJs.attrInput();
+
+	
+	layui.use(['form'], function(){
+		var form = layui.form;
+		 
+		//监听提交
+		  form.on('submit(save)', function(data){
+		    
+		   systemJs.ajax('/role/save', 'json', 'post', data.field, function(){
+							layer.closeAll('page');
+							role_manage.list();
+						});
+		    return false;
+		  });
+		
+		form.render();
+		
+		
+		form.on('switch(isable)', function(data){
+			if(this.checked){
+				$('#superFlag').val(1);
+			}else{
+				$('#superFlag').val(0);
+			}
+		});
+		
+		
+	});
+</script>
+

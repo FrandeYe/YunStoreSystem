@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="#(resPath)x-admin/css/font.css">
+<link rel="stylesheet" href="#(resPath)x-admin/css/login.css">
+<link rel="stylesheet" href="#(resPath)x-admin/css/xadmin.css">
+
+<script type="text/javascript" src="#(resPath)x-admin/js/jquery.min.js"></script>
+<script src="#(resPath)x-admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="#(resPath)default/js/default.js" charset="utf-8"></script>
+<script type="text/javascript" src="#(resPath)x-admin/js/xadmin.js"></script>

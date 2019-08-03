@@ -1,0 +1,272 @@
+
+		<link rel="stylesheet" href="#(resPath)x-admin/css/font.css">
+        <link rel="stylesheet" href="#(resPath)x-admin/css/xadmin.css">
+        
+        <script src="#(resPath)x-admin/lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="#(resPath)x-admin/js/xadmin.js"></script>
+         <script type="text/javascript" src="#(resPath)x-admin/js/jquery.min.js"></script>
+        <script type="text/javascript" src="#(resPath)echarts/js/echarts.min.js"></script>
+
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-body ">
+                            <blockquote class="layui-elem-quote">欢迎管理员：
+                                <span class="x-red">#(sessionAdmin.login_name ??)</span>！
+                               当前时间: <span id="current-time"></span>
+                               <span><a class="layui-btn" style="float:right; margin-top:-0.5%;" onclick="location.reload()" title="刷新">
+            					<i class="layui-icon layui-icon-refresh"></i></a></span>
+                            </blockquote>
+                            <div>
+							  <iframe src="http://music.163.com/outchain/player?type=0&amp;id=716635558&amp;auto=1&amp;height=430" width="100%" height="300" frameborder="no" marginwidth="0" marginheight="0"></iframe>
+							</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">数据统计</div>
+                        <div class="layui-card-body ">
+                            <ul class="layui-row layui-col-space10 layui-this x-admin-carousel x-admin-backlog">
+                                <li class="layui-col-md2 layui-col-xs6">
+                                    <a href="javascript:;" class="x-admin-backlog-body">
+                                        <h3>文章数</h3>
+                                        <p>
+                                            <cite>#(total_note)</cite></p>
+                                    </a>
+                                </li>
+                                <li class="layui-col-md2 layui-col-xs6">
+                                    <a href="javascript:;" class="x-admin-backlog-body">
+                                        <h3>用户数</h3>
+                                        <p>
+                                            <cite>#(total_user)</cite></p>
+                                    </a>
+                                </li>
+                                <li class="layui-col-md2 layui-col-xs6">
+                                    <a href="javascript:;" class="x-admin-backlog-body">
+                                        <h3>反馈信息</h3>
+                                        <p>
+                                            <cite>#(total_notice)</cite></p>
+                                    </a>
+                                </li>
+                                <li class="layui-col-md2 layui-col-xs6">
+                                    <a href="javascript:;" class="x-admin-backlog-body">
+                                        <h3>商品数</h3>
+                                        <p>
+                                            <cite>0</cite></p>
+                                    </a>
+                                </li>
+                                <li class="layui-col-md2 layui-col-xs6">
+                                    <a href="javascript:;" class="x-admin-backlog-body">
+                                        <h3>交易额</h3>
+                                        <p>
+                                            <cite>#(total_amount?? 0)</cite></p>
+                                    </a>
+                                </li>
+                                <li class="layui-col-md2 layui-col-xs6 ">
+                                    <a href="javascript:;" class="x-admin-backlog-body">
+                                        <h3>订单数</h3>
+                                        <p>
+                                            <cite>#(total_order?? 0)</cite></p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">文章
+                            <span class="layui-badge layui-bg-cyan layuiadmin-badge">本月</span></div>
+                        <div class="layui-card-body  ">
+                            <p>新增
+                                <span class="layuiadmin-span-color">#(month_note?? 0)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">文章
+                            <span class="layui-badge layui-bg-orange layuiadmin-badge">上月</span></div>
+                        <div class="layui-card-body ">
+                            <p>新增
+                                <span class="layuiadmin-span-color">#(lmonth_note?? 0)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">用户
+                            <span class="layui-badge layui-bg-cyan layuiadmin-badge">本月</span></div>
+                        <div class="layui-card-body ">
+                            <p>新增
+                                <span class="layuiadmin-span-color">#(month_user?? 0)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">用户
+                            <span class="layui-badge layui-bg-orange layuiadmin-badge">上月</span></div>
+                        <div class="layui-card-body ">
+                            <p>新增
+                                <span class="layuiadmin-span-color">#(lmonth_user?? 0)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">图表统计</div>
+                        <div class="layui-card-body">
+                        	<div>年份:<select id="year_select">
+                        		<option>2019</option>
+                        	</select></div>
+                            <div id="echarts_main" style="width: 50%;height:400px;" class="layui-col-md6">
+                            </div>
+                            <div id="echarts_sys" style="width: 50%;height:400px;" class="layui-col-md6"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">开发团队</div>
+                        <div class="layui-card-body ">
+                            <table class="layui-table">
+                                <tbody>
+                                    <tr>
+                                    </tr>
+                                    <tr>
+                                        <th>开发者</th>
+                                        <td>叶（yxp-td@qq.com）</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <style id="welcome_style"></style>
+                <div class="layui-col-md12">
+                    <blockquote class="layui-elem-quote layui-quote-nm">感谢layui,,jquery,本系统基于x-admin开发。</blockquote></div>
+            </div>
+        </div>
+        </div>
+        
+        <script>
+        
+        /**系统时间*/
+        setInterval(function() {
+            var now = (new Date()).toLocaleString();
+            $('#current-time').text(now);
+        }, 1000);
+        
+        
+        $('#year_select').change(function(){
+        	
+        });
+        
+        /**echarts统计图表*/
+        
+        var echarts_main = echarts.init(document.getElementById('echarts_main'));
+        
+     // 指定图表的配置项和数据
+        var option = {
+        		toolbox: {
+        	        show: true,
+        	        feature: {
+        	            dataView: {readOnly: false},
+        	            restore: {},
+        	            saveAsImage: {}
+        	        }
+        	    },
+            title: {
+                text: ''
+            },
+            tooltip: {
+            	 trigger: 'axis',
+                 axisPointer: {
+                     type: 'cross',
+                     crossStyle: {
+                         color: '#999'
+                     }
+                 }
+            },
+            legend: {
+                data:['文章','用户']
+            },
+            xAxis: [{
+            	type: 'category',
+                data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+            	axisPointer: {
+                type: 'shadow'
+            	}
+            }],
+            yAxis: [{
+                    type: 'value',
+                    name: '篇数',
+                    min: 0,
+                    max: 250,
+                    interval: 50,
+                    axisLabel: {
+                        formatter: '{value} 篇' 
+                    }
+            	},
+                {
+                    type: 'value',
+                    name: '位',
+                    min: 0,
+                    max: 250,
+                    interval: 50,
+                    axisLabel: {
+                        formatter: '{value} 位'
+                	}
+            }],
+            series: [{
+                name: '文章',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20],
+                itemStyle:{
+                	color: '#37A2DA'
+                }
+            },
+            {
+                name: '用户',
+                type: 'line',
+                data: [1, 9, 5, 12, 1, 1]
+            }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        echarts_main.setOption(option);
+        
+       var echarts_sys = echarts.init(document.getElementById('echarts_sys'));
+        
+       var sysOption = {
+        	    tooltip : {
+        	        formatter: "{a} <br/>{b} : {c}%"
+        	    },
+        	    toolbox: {
+        	        feature: {
+        	            restore: {},
+        	            saveAsImage: {}
+        	        }
+        	    },
+        	    series: [
+        	        {
+        	            name: '系统性能',
+        	            type: 'gauge',
+        	            detail: {formatter:'{value}%'},
+        	            data: [{value: 50, name: '使用'}]
+        	        }
+        	    ]
+        	};
+
+       echarts_sys.setOption(sysOption);
+       
+        
+        </script>
+        

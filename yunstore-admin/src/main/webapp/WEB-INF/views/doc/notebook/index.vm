@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+       #include('../../common/header.vm')
+       
+	 <!-- 配置文件 -->
+    <script type="text/javascript" src="#(resPath)ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="#(resPath)ueditor/ueditor.all.js"></script>
+     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+   <script type="text/javascript" charset="utf-8" src="#(resPath)ueditor/lang/zh-cn/zh-cn.js"></script>
+       
+    </head>
+    <body>
+    
+        <div class="x-nav">
+         <!--  <span class="layui-breadcrumb">
+            <a href=""></a>
+            <a href="">演示</a>
+            <a>
+              <cite>导航元素</cite></a>
+          </span> -->
+          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+        </div>
+        
+        
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                    
+                    <!-- 操作栏模板 start-->
+                        <div class="layui-card-body ">
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input class="layui-input"  autocomplete="off" placeholder="开始日" disabled id="start_date">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input class="layui-input"  autocomplete="off" placeholder="截止日" disabled id="end_date">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input type="text" name="title" id="title" placeholder="请输入笔记本标题" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <button class="layui-btn"  onclick="notebook.list()"><i class="layui-icon">&#xe615;</i></button>
+                                </div>
+                        </div>
+                        
+                        <script type="text/html" id="toolbarDemo">
+							 <div class="layui-card-header">
+                            	<button class="layui-btn layui-btn-danger" lay-event="getCheckData"><i class="layui-icon"></i>批量删除</button>
+                        	</div>
+						</script>
+                        
+                        <!-- 操作栏模板 end-->
+                        
+                        
+                        <!-- 数据表格模板 start -->
+                        <div id="page_list">
+                            
+                        </div>
+                         <!-- 数据表格模板 start -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+    <script>
+      layui.use(['laydate', 'table'], function(){
+        var laydate = layui.laydate
+        ,table = layui.table;
+
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#start_date' //指定元素
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#end_date' //指定元素
+        });
+        
+      });
+
+
+      
+      notebook = {};
+      
+      notebook.pageNumber = 1;
+      notebook.pageSize = 10;
+      
+      notebook.list = function(){
+    	  $.ajax('/doc/notebook/list', {
+        	  type: 'get',
+        	  data:{pageNumber: notebook.pageNumber
+        		  , pageSize: notebook.pageSize
+        		  , title : $('#title').val()  
+        	  },
+        	  dataType: 'html',
+        	  success: function(data){
+        		  $('#page_list').empty();
+        		  $('#page_list').html(data);
+        	  }
+          });
+      }
+      
+      notebook.list();
+      
+      
+      notebook.edit = function(id){
+    	  $.ajax('/doc/notebook/editView', {
+    		  type: 'get'
+    		  ,data: {id: id}
+    		  ,dateType : 'html'
+    		  ,success: function(data){
+    			  notebook.editView(data);
+    		  }
+    	  });
+      }
+      
+     
+      
+      notebook.editView = function(data){
+    	  var index = layer.open({
+		        type: 1
+		        ,title: ['编辑笔记']
+		        ,area: ['70%', '70%']
+				,id: 'notebook'
+		        ,shade: 0.3
+		        ,maxmin: true
+		        ,anim: 1
+		        ,closeBtn: true
+		        ,content: data
+		        ,btn: ['关闭']
+		        ,yes: function(){
+		        	ue.destroy();
+		        	layer.close(index);
+		        }
+		      });
+      }
+      
+     notebook.del = function(id){
+    	 layer.confirm('确认要删除吗？',function(index){
+            systemJs.ajax('/doc/notebook/delete', 'json', 'post', {id: id}, function(){
+            	notebook.list();
+            });
+         });
+     }
+     
+     
+     notebook.read = function(id, title){
+   	  $.ajax('/doc/notebook/infoView', {
+   		  type: 'get'
+   		  ,data: {id: id}
+   		  ,dateType : 'html'
+   		  ,success: function(data){
+   			  notebook.readView(data, title);
+   		  }
+   	  });
+     }
+     
+     
+     notebook.readView = function(data, title){
+   	  var index = layer.open({
+		        type: 1
+		        ,title: ['阅读笔记【'+title+'】']
+		        ,area: ['70%', '70%']
+				,id: 'read'
+		        ,shade: 0.3
+		        ,maxmin: true
+		        ,anim: 1
+		        ,closeBtn: true
+		        ,content: data
+		        ,btn: ['关闭']
+		        ,yes: function(){
+		        	layer.close(index);
+		        }
+		      });
+     }
+      
+     
+    </script>
+</html>

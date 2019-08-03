@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="#(resPath)zTree/css/zTreeStyle/zTreeStyle.css">
+<script type="text/javascript" src="#(resPath)zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="#(resPath)zTree/js/jquery.ztree.excheck-3.5.js"></script>
+
+<style>
+#treeDemo {
+	float: left;
+	margin-left: 15px;
+	width: 400px;
+	overflow-y: none;
+	overflow-x: none;
+}
+</style>
+<form id="dataFormRole">
+	<div class="content_c2_bd li_bg">
+		<div class="content_c2_bdc">
+			<div id="treeDemo" class="ztree"></div>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+	var setting = {
+		check: {
+    		enable: true
+    	},
+    	data: {
+    		simpleData: {
+    			enable: true
+    		}
+    	}
+    };
+	
+	$(function(){
+		zTreeNodes = #(operJson);
+		$.fn.zTree.init($("#treeDemo"), setting, zTreeNodes);
+		zTree = $.fn.zTree.getZTreeObj("treeDemo");
+		zTree.expandAll(true);
+		var nodes = zTree.getCheckedNodes();
+		for (var i = 0, l = nodes.length; i < l; i++) {
+			zTree.checkNode(nodes[i], true, true);
+		}
+// 		zTree.refresh();
+	});
+	
+</script>

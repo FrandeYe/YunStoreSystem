@@ -1,0 +1,102 @@
+<!-- 管理员信息 -->
+<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">
+
+		<!-- 头像 -->
+		<fieldset class="layui-elem-field">
+			<legend>头像</legend>
+			<div class="layui-field-box">
+				<img src="#(admin.head_url ??)" id="head"
+  			class="layui-circle" style="width:20%;">
+  			
+  			<button type="button" class="layui-btn layui-btn-normal" id="headicon">
+  				<i class="layui-icon">&#xe67c;</i>选择头像
+			</button>
+			
+			<button type="button" class="layui-btn" id="startUpload" style="display:none">
+  				上传
+			</button>
+			
+			</div>
+		</fieldset>
+		
+		<input type="hidden" name="admin.id" lay-verify="required" value="#(admin.id ??)" id="adminId" class="layui-input">
+		
+		<!-- 用户名 -->
+		<fieldset class="layui-elem-field">
+			<legend>用户名</legend>
+			<div class="layui-field-box">#(admin.login_name ??)</div>
+		</fieldset>
+		
+		<!-- 手机号 -->
+		<fieldset class="layui-elem-field">
+			<legend>手机号</legend>
+			<div class="layui-field-box">#(admin.mobile ??)</div>
+		</fieldset>
+		
+		<!-- 性别 -->
+		<fieldset class="layui-elem-field">
+			<legend>性别</legend>
+			<div class="layui-field-box">#if(admin.gender?? ==0)女 #elseif(admin.gender?? ==1)男 #else保密 #end</div>
+		</fieldset>
+		
+		<!-- 签名，简介 -->
+		<fieldset class="layui-elem-field">
+			<legend>简介</legend>
+			<div class="layui-field-box">#(admin.remark ??)</div>
+		</fieldset>
+		
+		<!-- 生日 -->
+		<fieldset class="layui-elem-field">
+			<legend>生日</legend>
+			<div class="layui-field-box">#date(admin.birth ??, 'yyyy-MM-dd')</div>
+		</fieldset>
+		
+		<!-- 所在地 -->
+		<fieldset class="layui-elem-field">
+			<legend>所在地</legend>
+			<div class="layui-field-box">#(admin.province_name??) #(admin.city_name??) #(admin.county_name??)</div>
+		</fieldset>
+	
+</div>
+
+
+<script type="text/javascript">
+
+layui.use(['upload'], function(){
+	var upload = layui.upload;
+	
+	var uploadBtn = upload.render({
+		elem: '#headicon'
+		,url: '/admin/upload'
+		,data: {id : $('#adminId').val()}
+		,auto: false
+		,size: 1024
+		,acceptMime: 'image/*'
+		,bindAction: '#startUpload'
+		,before: function(obj){
+			//预读本地文件示例，不支持ie8
+		      obj.preview(function(index, file, result){
+		        $('#head').attr('src', result); //图片链接（base64）
+		        $('#index_head').attr('src', result);
+		      });
+		}
+		,choose: function(obj){
+			obj.preview(function(index, file, result){
+				 $('#head').attr('src', result);
+				 $('#startUpload').show('slow');
+			 });
+		}
+		,done: function(res, index, upload){
+			systemJs.okLayer(res.message);
+			$('#startUpload').hide();
+		}
+		,error: function(index, upload){
+			console.log(index + '\n' + upload);
+			systemJs.errorLayer('上传异常');
+		}
+	});
+	
+});
+
+</script>
+

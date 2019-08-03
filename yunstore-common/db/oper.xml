@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 所有权限点，在此文件中描述，通过com.tplp.common.util.OperSqlGen中的方法生成常量与SQL -->
+<data>
+	<node name="业务" code="1">
+	    
+		<node name="会员管理" code="1_1">
+		
+			<node name="试用会员" code="1_1_1" url="/business/userInfo/trialmember">
+				<node name="列表" code="1_1_1_1" ref="1_1_1" />
+			</node>
+			
+			<node name="正式会员" code="1_1_2" url="/business/userInfo/fullmember">
+				<node name="列表" code="1_1_2_1" ref="1_1_2" />
+			</node>
+			
+			<node name="到期会员" code="1_1_3" url="/business/userInfo/expiremember">
+				<node name="列表" code="1_1_3_1" ref="1_1_3" />
+			</node>
+			
+			<node name="推荐排行榜" code="1_1_4" url="/business/userInfo/recommend">
+				<node name="列表" code="1_1_4_1" ref="1_1_4" />
+			</node>
+			
+		</node>
+		
+	</node>	
+	
+	<node name="财务" code="2">
+	    
+		<node name="提现管理" code="2_1">
+			<node name="提现管理" code="2_1_1" url="/traderManage/withdraw/toAuditIndex">
+				<node name="列表" code="2_1_1_1" ref="2_1_1" />
+				<node name="拒绝" code="2_1_1_2" ref="2_1_1" />
+				<node name="通过" code="2_1_1_3" ref="2_1_1" />
+				<node name="付款" code="2_1_1_4" ref="2_1_1" />
+				<node name="拒绝付款" code="2_1_1_5" ref="2_1_1" />
+			</node>
+		</node>
+		
+		<node name="平台账户" code="2_2">
+			<node name="平台账户" code="2_2_1" url="/traderManage/platform/salesIncomeIndex">
+				<node name="列表" code="2_2_1_1" ref="2_2_1" />
+			</node>
+		</node>
+		
+		<node name="财务统计" code="2_3">
+			<node name="销售统计" code="2_3_1" url="/traderManage/statistics/salesStatisticsIndex">
+				<node name="列表" code="2_3_1_1" ref="2_3_1" />
+			</node>
+			<node name="提现统计" code="2_3_2" url="/traderManage/statistics/cashStatisticsIndex">
+				<node name="列表" code="2_3_2_1" ref="2_3_2" />
+			</node>
+			<node name="交易流水" code="2_3_3" url="/traderManage/statistics/index">
+				<node name="列表" code="2_3_3_1" ref="2_3_3" />
+			</node>
+		</node>
+		
+	</node>	
+	
+	<node name="系统" code="3">
+	    
+		<node name="用户管理" code="3_1">
+			<node name="用户管理" code="3_1_1" url="/system/admin/index">
+				<node name="列表" code="3_1_1_1" ref="3_1_1" />
+				<node name="添加" code="3_1_1_2" ref="3_1_1" />
+				<node name="修改" code="3_1_1_3" ref="3_1_1" />
+				<node name="删除" code="3_1_1_4" ref="3_1_1" />
+				<node name="重置密码" code="3_1_1_5" ref="3_1_1" />
+			</node>
+			<node name="角色管理" code="3_1_2" url="/system/role/index">
+				<node name="列表" code="3_1_2_1" ref="3_1_2" />
+				<node name="添加" code="3_1_2_2" ref="3_1_2" />
+				<node name="修改" code="3_1_2_3" ref="3_1_2" />
+				<node name="删除" code="3_1_2_4" ref="3_1_2" />
+				<node name="权限设置" code="3_1_2_5" ref="3_1_2" />
+			</node>
+		</node>
+		
+		<node name="系统设置" code="3_2">
+			<node name="参数设置" code="3_2_1" url="/traderManage/withdraw/configIndex">
+				<node name="列表" code="3_2_1_1" ref="3_2_1" />
+				<node name="修改" code="3_2_1_2" ref="3_2_1" />
+			</node>
+			<node name="支付通道" code="3_2_2" url="/system/config/payment/index">
+				<node name="列表" code="3_2_2_1" ref="3_2_2" />
+				<node name="添加" code="3_2_2_2" ref="3_2_2" />
+				<node name="修改" code="3_2_2_3" ref="3_2_2" />
+				<node name="删除" code="3_2_2_4" ref="3_2_2" />
+				<node name="禁用" code="3_2_2_5" ref="3_2_2" />
+			</node>
+		</node>
+		
+		<node name="操作日志" code="3_3">
+			<node name="操作日志列表" code="3_3_1" url="/system/operLog/index">
+				<node name="列表" code="3_3_1_1" ref="3_3_1" />
+			</node>
+			<node name="删除操作日志" code="3_3_2" url="/system/operLog/delLog">
+				<node name="列表" code="3_3_2_1" ref="3_3_2" />
+				<node name="删除一周前日志" code="3_3_2_2" ref="3_3_2" />
+				<node name="删除一月前日志" code="3_3_2_3" ref="3_3_2" />
+				<node name="删除全部日志" code="3_3_2_4" ref="3_3_2" />
+			</node>
+		</node>
+		
+	</node>	
+	
+	<node name="系统首页" code="4">
+		
+		<node name="总体统计" code="4_1" url="">
+			<node name="注册用户数" code="4_1_1" ref="4_1" />
+			<node name="正式会员数" code="4_1_2" ref="4_1" />
+			<node name="总销售额" code="4_1_3" ref="4_1" />
+			<node name="待提现总额" code="4_1_4" ref="4_1" />
+		</node>
+		
+		<node name="经营概况" code="4_2" url="">
+			<node name="新增用户数" code="4_2_1" ref="4_2" />
+			<node name="购买会员数" code="4_2_2" ref="4_2" />
+			<node name="销售额" code="4_2_3" ref="4_2" />
+			<node name="提现额" code="4_2_4" ref="4_2" />
+		</node>
+	</node>
+	
+</data>

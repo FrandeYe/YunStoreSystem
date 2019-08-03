@@ -1,0 +1,144 @@
+
+
+<style>
+ 
+</style>
+
+<body >
+#include('../../common/header.vm')
+	<div class="x-nav">
+          <span class="layui-breadcrumb">
+            <a href=""></a>
+            <a href="">素材管理</a>
+            <a>
+              <cite>图片库</cite></a>
+          </span>
+          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+        </div>
+
+	<div class="layui-card-header" style="margin-top:10px;">
+		<button class="layui-btn layui-btn-danger" lay-event="getCheckData">
+			<i class="layui-icon"></i>批量删除
+		</button>
+		<button class="layui-btn" onclick="material_picture.getUploadView();">
+			<i class="layui-icon"></i>上传图片
+		</button>
+	</div>
+
+	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+  <legend>图片库</legend>
+</fieldset>
+
+<div class="site-demo-flow layer-photos-demo" id="imgList">
+  
+</div>
+
+<div style="display: none;" id="img_info_div">
+	<img width="100%" id="img_url">
+	<div id="slide_img" style="margin: 45px 30px;"></div>
+</div>
+</body>
+<script>
+$(function(){
+	layui.use(['flow', 'slider'], function(){
+	  var flow = layui.flow
+	  		,slider = layui.slider;
+	  
+		flow.load({
+				elem : '#imgList',
+				done : function(page, next) { //到达临界点（默认滚动触发），触发下一页
+					var lis = [];
+					//以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+					$.get('/material/picture/list?pageSize=10&pageNumber='+page, function(res) {
+						//假设你的列表返回在data集合中
+						layui.each(res.list, function(index, item) {
+							lis.push('<img onclick="material_picture.click(this.src)" style="width:200px;height:200px;margin-left:10px;margin-top:10px;" src='+item.url+'>');
+						});
+						//执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+						//pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+						next(lis.join(''), page < res.totalPage);
+					});
+				}
+			});
+		
+		//初始化滑动块
+		
+		 material_picture.sliderDom = function(){
+			 slider.render({
+				    elem: '#slide_img',
+				    input: true,
+				    value: 0,
+				    setTips: function(value){
+				    	return value;
+				    },
+				    change: function(value){
+				    	$('#img_open').height(100+value+'%');
+				    	$('#img_open').width(100+value+'%');
+				    	$('div .layui-layer-title').width(72+value+'%');
+				    }
+				  });
+		} 
+		
+		 material_picture.sliderDom();
+		
+		  material_picture.click = function(para){
+				
+				$('#img_url').attr('src', para);
+				
+				layer.open({
+					  type: 1,
+					  title: '<div style="color:red;text-align:center;" id="img_title_div">请拖动滑块以调整图片大小</div>',
+					  id:'img_open',
+					  area: 'auto',
+					  skin: 'layui-layer-nobg',
+					  shade: 1,
+					  closeBtn: 2,
+					  shadeClose: false,
+					  fixed: false,
+					  moveOut: true,
+					  resize: false,
+					  content: $('#img_info_div'),
+					  end: function(){
+						  material_picture.sliderDom();
+					  }
+					});
+			}
+		
+		});
+		
+		
+
+		material_picture = {};
+
+		material_picture.getUploadView = function() {
+			$.ajax('/material/picture/uploadView', {
+				type : 'get',
+				dataType : 'html',
+				success : function(data) {
+					material_picture.openUploadView(data);
+				}
+			});
+		}
+
+		material_picture.openUploadView = function(data) {
+			var index = layer.open({
+				type : 1,
+				title : [ '上传图片' ],
+				area : [ '60%', '60%' ],
+				id : 'img',
+				shade : 0.3,
+				maxmin : true,
+				anim : 1,
+				closeBtn : true,
+				content : data,
+				btn : [ '关闭' ],
+				yes : function() {
+					layer.close(index);
+				}
+			});
+		}
+		
+})
+</script>
+

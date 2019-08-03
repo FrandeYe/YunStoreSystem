@@ -1,0 +1,88 @@
+<div class="x-admin-sm">
+	<link rel="stylesheet" href="#(resPath)x-admin/css/xadmin.css">
+	<script type="text/javascript" src="#(resPath)x-admin/js/jquery.min.js"></script>
+	<script src="#(resPath)default/js/default.js" charset="utf-8"></script>
+	<script src="#(resPath)x-admin/lib/layui/layui.js" charset="utf-8"></script>
+	
+	 <!-- 配置文件 -->
+    <script type="text/javascript" src="#(resPath)ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="#(resPath)ueditor/ueditor.all.js"></script>
+     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+   <!--  <script type="text/javascript" charset="utf-8" src="#(resPath)ueditor/lang/zh-cn/zh-cn.js"></script> -->
+
+
+	<form class="layui-form layui-form-pane">
+		<!-- 标题 -->
+		<div class="layui-form-item" style="margin-top:15px;">
+			<label class="layui-form-label">标题</label>
+			<div class="layui-input-block">
+				<input type="text" name="noteinfo.title" lay-verify="required"
+					placeholder="请输入笔记标题" autocomplete="off" class="layui-input">
+			</div>
+
+			<div>
+				<button class="layui-btn" lay-submit lay-filter="save">保存</button>
+				<button type="reset" class="layui-btn layui-btn-danger"
+					id="resetBtn" onclick="noteinfo.clean();">清空</button>
+			</div>
+
+		</div>
+
+		 <!-- 加载编辑器的容器 -->
+    	<script id="container" name="noteinfo.content" type="text/plain"></script>
+	</form>
+
+    
+    
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+      	/**对编辑器的操作最好在编辑器ready之后再做*/
+        ue.ready(function(){
+        	/**清空草稿箱的内容*/
+        	//ue.execCommand("clearlocaldata");
+        	/**设置读取本地保存数据*/
+            ue.execCommand('drafts');
+            /**设置编辑器的内容*/
+           // ue.setContent('请在此编辑您的内容');
+            //获取html内容，返回: <p>hello</p>
+           // var html = ue.getContent();
+            //获取纯文本内容，返回: hello
+            //var txt = ue.getContentTxt();
+            /**提交表单editor.execCommand( 'autosubmit' );*/
+            
+            /**设置编辑器高度 editor.setHeight(number);*/
+            ue.setHeight(600);
+            /**hasContents()*/
+        });
+      	
+      	
+      	layui.use(['form'], function(){
+      		var form = layui.form;
+      		
+      		form.on('submit(save)', function(data){
+      			
+      			var content = ue.getContent();
+      			
+      			var res = systemJs.ajax('/doc/noteinfo/save' ,'json' ,'post' ,data.field, function(){
+      					$('#resetBtn').click();
+      				}
+      			);
+      			
+      			return res;
+      		});
+      		
+      	});
+      	
+      	
+      	noteinfo = {};
+      	
+      	noteinfo.clean = function(){
+      		ue.setContent('');
+      	}
+      	
+    </script>
+
+</div>

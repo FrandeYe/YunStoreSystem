@@ -1,0 +1,13 @@
+<div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header">#(noteinfo.title)</div>
+        <div class="layui-card-body">
+        <span class="layui-badge layui-bg-gray">
+        更新时间：#date(noteinfo.updated_at, 'yyyy-MM-dd HH:mm:ss')
+        创建人：#(noteinfo.getCreateAdmin().login_name ??)  更新人：#(noteinfo.getUpdateAdmin().login_name ??)
+        </span>
+        <hr class="layui-bg-red">
+          #(noteinfo.content)
+        </div>
+      </div>
+    </div>

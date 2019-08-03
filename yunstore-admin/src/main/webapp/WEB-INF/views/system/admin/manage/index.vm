@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+       #include('../../../common/header.vm')
+       
+    </head>
+    <body>
+    
+        <div class="x-nav">
+          <span class="layui-breadcrumb">
+            <a href=""></a>
+            <a href="">系统管理</a>
+            <a>
+              <cite>账户管理</cite></a>
+          </span>
+          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+        </div>
+        
+        
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                    
+                    <!-- 操作栏模板 start-->
+                        <div class="layui-card-body ">
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input class="layui-input"  autocomplete="off" placeholder="开始日" id="start_date">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input class="layui-input"  autocomplete="off" placeholder="截止日" id="end_date">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input type="text" name="userInfo" id="userInfo" placeholder="请输入用户名或手机号" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <button class="layui-btn"  onclick="admin_manage.list()"><i class="layui-icon">&#xe615;</i></button>
+                                </div>
+                        </div>
+                        
+                        <script type="text/html" id="toolbarDemo">
+							 <div class="layui-card-header">
+                            	<button class="layui-btn layui-btn-danger layui-btn-disabled" disabled lay-event="getCheckData"><i class="layui-icon"></i>批量删除</button>
+                            	<button class="layui-btn" onclick="admin_manage.add()"><i class="layui-icon"></i>添加</button>
+                        	</div>
+						</script>
+                        
+                        <!-- 操作栏模板 end-->
+                        
+                        
+                        <!-- 数据表格模板 start -->
+                        <div id="page_list">
+                            
+                        </div>
+                         <!-- 数据表格模板 start -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+    <script>
+      layui.use(['laydate', 'table'], function(){
+        var laydate = layui.laydate
+        ,table = layui.table;
+
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#start_date' //指定元素
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#end_date' //指定元素
+        });
+        
+      });
+
+
+      
+      admin_manage = {};
+      
+      admin_manage.pageNumber = 1;
+      admin_manage.pageSize = 10;
+      
+      admin_manage.list = function(){
+    	  $.ajax('/admin/manage/list', {
+        	  type: 'post',
+        	  data:{pageNumber: admin_manage.pageNumber
+        		  , pageSize: admin_manage.pageSize
+        		  , userInfo : $('#userInfo').val()  
+        	  },
+        	  dataType: 'html',
+        	  success: function(data){
+        		  $('#page_list').empty();
+        		  $('#page_list').html(data);
+        	  }
+          });
+      }
+      
+      admin_manage.list();
+      
+      
+      admin_manage.add = function(){
+    	  $.ajax('/admin/manage/registerView', {
+    		  type: 'get'
+    		  ,dateType : 'html'
+    		  ,success: function(data){
+    			  admin_manage.addView(data);
+    		  }
+    	  });
+      }
+      
+      admin_manage.edit = function(id){
+    	  $.ajax('/admin/manage/editView', {
+    		  type: 'get'
+    		  ,data: {id: id}
+    		  ,dateType : 'html'
+    		  ,success: function(data){
+    			  admin_manage.editView(data);
+    		  }
+    	  });
+      }
+      
+      admin_manage.addView = function(data){
+				var index = layer.open({
+			        type: 1
+			        ,title: ['添加管理员账户']
+			        ,area: ['60%', '60%']
+					,id: 'addAmin'
+			        ,shade: 0.3
+			        ,maxmin: true
+			        ,anim: 1
+			        ,closeBtn: true
+			        ,content: data
+			        ,btn: ['取消']
+			        ,yes: function(){
+			        	layer.close(index);
+			        }
+			      });
+		}
+      
+      admin_manage.editView = function(data){
+    	  var index = layer.open({
+		        type: 1
+		        ,title: ['编辑管理员账户']
+		        ,area: ['60%', '60%']
+				,id: 'editAmin'
+		        ,shade: 0.3
+		        ,maxmin: true
+		        ,anim: 1
+		        ,closeBtn: true
+		        ,content: data
+		        ,btn: ['取消']
+		        ,yes: function(){
+		        	layer.close(index);
+		        }
+		      });
+      }
+      
+      /*用户-启用-禁用*/
+      admin_manage.changeUseStatus = function(id, type){
+    	  var res = systemJs.ajax('/admin/manage/changeUseStatus', 'json', 'post', 
+    			  {'id':id, 'disableFlag':type}, function(){ admin_manage.list();});
+      }
+      
+      
+      /*用户删除*/
+      admin_manage.del = function(id, name){
+    	  
+    	  layer.confirm('确认要删除用户【'+name+'】吗？', {icon: 3, title:'提示'},function(index){
+    		  var res = systemJs.ajax('/admin/manage/del', 'json', 'post', 
+        			  {'id':id}, function(){ admin_manage.list();});
+	        });
+    	  
+      }
+      
+    </script>
+</html>

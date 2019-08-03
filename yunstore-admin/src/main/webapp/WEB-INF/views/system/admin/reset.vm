@@ -1,0 +1,76 @@
+<!-- 重置密码 -->
+<div>
+
+	<form class="layui-form layui-form-pane" id="reset_form" lay-filter="example" 
+	style="margin-left:25%; margin-top: 10px">
+		
+		<!-- 原密码 -->
+		<div class="layui-form-item">
+			<label class="layui-form-label layui-bg-orange">原密码</label>
+			<div class="layui-input-inline">
+				<input type="password" name="oldPassword" lay-verify="required"
+					placeholder="请输入原密码" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		<input type="hidden" name="adminId" lay-verify="required" value="#(sessionAdmin.id ??)" class="layui-input">
+		
+		<!-- 密码 -->
+		<div class="layui-form-item">
+			<label class="layui-form-label layui-bg-red">新密码</label>
+			<div class="layui-input-inline">
+				<input type="password" name="newPassword" lay-verify="required"
+					placeholder="请输入新密码" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		<!-- 确认密码 -->
+		<div class="layui-form-item">
+			<label class="layui-form-label layui-bg-red">确认密码</label>
+			<div class="layui-input-inline">
+				<input type="password" name="confirPassword" lay-verify="required"
+					placeholder="请再次输入新密码" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="save">保存</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+		
+	</form>
+
+</div>
+
+<script type="text/javascript">
+
+	systemJs.attrInput();
+
+	
+	layui.use(['form', 'layedit', 'laydate'], function(){
+		var form = layui.form
+		  ,layedit = layui.layedit
+		  ,laydate = layui.laydate;
+		
+		 laydate.render({
+			    elem: '#birth'
+			  });
+		 
+		//监听提交
+		  form.on('submit(save)', function(data){
+		    
+		   systemJs.ajax('admin/resetPassword', 'json', 'post', data.field, function(){
+							layer.closeAll('page');
+						});
+		    return false;
+		  });
+		
+		//表单初始赋值
+		  form.val('example', {
+		    "admin.remark": '#(sessionAdmin.remark ??)'
+		  })
+	});
+</script>
+

@@ -1,0 +1,437 @@
+<html>
+<head>
+<title>支付宝接口测试</title>
+#include('../common/header.vm')
+</head>
+
+<body>
+
+<div class="x-nav">
+          <span class="layui-breadcrumb">
+            <a href=""></a>
+            <a href="">系统管理</a>
+            <a>
+              <cite>支付宝接口</cite></a>
+          </span>
+          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+        </div>
+
+<div class="layui-tab layui-tab-card">
+  <ul class="layui-tab-title">
+    <li class="layui-this">电脑网站支付-订单付款</li>
+    <li>订单查询</li>
+    <li>退款</li>
+    <li>退款查询</li>
+    <li>交易关闭</li>
+    <li id="order_list">订单管理</li>
+  </ul>
+		<div class="layui-tab-content" style="height: 800px;">
+		<!-- 订单付款 -->
+			<div class="layui-tab-item layui-show">
+				<form class="layui-form layui-form-pane" id="edite_form">
+					<div class="layui-form-item">
+						<label class="layui-form-label"><span style="color: red;">*</span>商户订单号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="out_trade_no" lay-verify="required"
+								placeholder="商户订单号" autocomplete="off" id="WIDout_trade_no"
+								class="layui-input">
+						</div>
+						<button class="layui-btn layui-btn-primary"
+							onclick="aliPay.order_no();">更新订单号</button>
+					</div>
+
+					<div class="layui-form-item">
+						<label class="layui-form-label"><span style="color: red;">*</span>付款金额</label>
+						<div class="layui-input-inline">
+							<input type="number" name="total_amount" lay-verify="required"
+								placeholder="付款金额" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+
+					<div class="layui-form-item">
+						<label class="layui-form-label"><span style="color: red;">*</span>订单名称</label>
+						<div class="layui-input-inline">
+							<input type="text" name="subject" lay-verify="required"
+								placeholder="订单名称" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+
+					<div class="layui-form-item">
+						<label class="layui-form-label">订单描述</label>
+						<div class="layui-input-inline">
+							<input type="text" name="body" placeholder="订单描述"
+								autocomplete="off" class="layui-input">
+						</div>
+					</div>
+
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn" lay-submit="" lay-filter="save">确认订单</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- 订单查询 -->
+			<div class="layui-tab-item">
+				<span style="color: red;">*至少填写一个参数</span>
+				<form class="layui-form layui-form-pane" id="edite_form">
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>商户订单号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="out_trade_no" placeholder="商户订单号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<span style="color: #999">示例：2019731162511572</span>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>支付宝交易号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="trade_no" placeholder="支付宝交易号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<span style="color: #999">示例：2019073122001421081000015408</span>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn" lay-submit="" lay-filter="query">查询</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						</div>
+					</div>
+				</form>
+				<div class="layui-form-item">
+					<label class="layui-form-label">查询结果：</label>
+					<div class="layui-input-inline">
+						<textarea class="layui-textarea" readonly
+							style="width: 650px; height: 300px" id="res"></textarea>
+					</div>
+				</div>
+			</div>
+			<!-- 退款 -->
+			<div class="layui-tab-item">
+				<span style="color: red;">*商户订单号与支付宝交易号二选一，如果您点击“退款”按钮，即表示您同意该次的执行操作。</span>
+				<form class="layui-form layui-form-pane">
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>商户订单号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="out_trade_no" placeholder="商户订单号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<span style="color: #999">示例：2019731162511572</span>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>支付宝交易号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="trade_no" placeholder="支付宝交易号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<span style="color: #999">示例：2019073122001421081000015408</span>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span style="color: red;">*</span>退款金额</label>
+						<div class="layui-input-inline">
+							<input type="number" name="refund_amount" lay-verify="required"
+								placeholder="退款金额" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;">退款原因</label>
+						<div class="layui-input-inline">
+							<input type="text" name="refund_reason" placeholder="退款原因"
+								autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;">退款请求号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="out_request_no" placeholder="退款请求号"
+								autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn" lay-submit="" lay-filter="doRefund">退款</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						</div>
+					</div>
+				</form>
+				<div class="layui-form-item">
+					<label class="layui-form-label">退款结果：</label>
+					<div class="layui-input-inline">
+						<textarea class="layui-textarea" readonly
+							style="width: 650px; height: 300px" id="refundRes"></textarea>
+					</div>
+				</div>
+			</div>
+			<!-- 退款查询 -->
+			<div class="layui-tab-item">
+				<span style="color: red;">*商户订单号与支付宝交易号二选一，如果您点击“退款查询”按钮，即表示您同意该次的执行操作。</span>
+				<form class="layui-form layui-form-pane">
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>商户订单号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="out_trade_no" placeholder="商户订单号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<span style="color: #999">示例：2019731162511572</span>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>支付宝交易号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="trade_no" placeholder="支付宝交易号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<span style="color: #999">示例：2019073122001421081000015408</span>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;">退款请求号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="out_request_no" placeholder="退款请求号"
+								autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn" lay-submit="" lay-filter="queryRefund">退款查询</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						</div>
+					</div>
+				</form>
+				<div class="layui-form-item">
+					<label class="layui-form-label">退款查询结果：</label>
+					<div class="layui-input-inline">
+						<textarea class="layui-textarea" readonly
+							style="width: 650px; height: 300px" id="queryRefundRes"></textarea>
+					</div>
+				</div>
+			</div>
+			<!-- 交易关闭 -->
+			<div class="layui-tab-item">
+				<span style="color: red;">*商户订单号与支付宝交易号二选一，如果您点击“交易关闭”按钮，即表示您同意该次的执行操作。</span>
+				<form class="layui-form layui-form-pane">
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>商户订单号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="out_trade_no" placeholder="商户订单号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<span style="color: #999">示例：2019731162511572</span>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>支付宝交易号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="trade_no" placeholder="支付宝交易号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<span style="color: #999">示例：2019073122001421081000015408</span>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn" lay-submit="" lay-filter="close">交易关闭</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						</div>
+					</div>
+				</form>
+				<div class="layui-form-item">
+					<label class="layui-form-label">交易关闭结果：</label>
+					<div class="layui-input-inline">
+						<textarea class="layui-textarea" readonly
+							style="width: 650px; height: 300px" id="closeRes"></textarea>
+					</div>
+				</div>
+			</div>
+			<!-- 订单管理 -->
+			<div class="layui-tab-item" style="height:100px;">
+				<div class="layui-form layui-form-pane">
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>订单号</label>
+						<div class="layui-input-inline">
+							<input type="text" name="out_trade_no" id="out_trade_no" placeholder="订单号"
+								autocomplete="off" class="layui-input">
+						</div>
+						<label class="layui-form-label" style="width: 150px;"><span
+							style="color: red;">*</span>订单名称</label>
+							<div class="layui-input-inline">
+							<input type="text" name="order_name"  id="order_name" placeholder="订单名称"
+								autocomplete="off" class="layui-input">
+						</div>
+						<button class="layui-btn" id="do_search">查询</button>
+					</div>
+				</div>
+				<div id="page_list"></div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+<script>
+
+aliPay = {};
+
+aliPay.renderRes = function(url, param){
+	window.open(url + '?out_trade_no=' + param.out_trade_no + '&total_amount=' 
+	+ param.total_amount + '&subject=' + param.subject + '&body=' + param.body);
+}
+
+aliPay.order_no = function(){
+	var vNow = new Date();
+	var sNow = "";
+	sNow += String(vNow.getFullYear());
+	sNow += String(vNow.getMonth() + 1);
+	sNow += String(vNow.getDate());
+	sNow += String(vNow.getHours());
+	sNow += String(vNow.getMinutes());
+	sNow += String(vNow.getSeconds());
+	sNow += String(vNow.getMilliseconds());
+	$("#WIDout_trade_no").val(sNow);
+} 
+aliPay.order_no();
+
+layui.use(['form'], function(){
+	var form = layui.form;
+	
+	form.on('submit(save)', function(data){
+		var param = data.field;
+		$.ajax({
+			url: '/aliPay/confirmOrder',
+			type: 'post',
+			data: data.field,
+			dataType: 'json',
+			success: function(data){
+				if(data.code == 0){
+					systemJs.okLayer(data.message);
+					aliPay.renderRes(data.url, param);
+				}
+			}
+		});
+	});
+	
+	form.on('submit(query)', function(data){
+		var param = data.field;
+		$.ajax({
+			url: '/aliPay/query',
+			type: 'post',
+			data: data.field,
+			dataType: 'json',
+			success: function(data){
+				if(data.code == 0){
+					systemJs.okLayer(data.message);
+					$('#res').val(data.res);
+				}else{
+					systemJs.errorLayer(data.message);
+				}
+			}
+		});
+		return false;
+	});
+	
+	form.on('submit(doRefund)', function(data){
+		var param = data.field;
+		$.ajax({
+			url: '/aliPay/refund',
+			type: 'post',
+			data: data.field,
+			dataType: 'json',
+			success: function(data){
+				if(data.code == 0){
+					systemJs.okLayer(data.message);
+					$('#refundRes').val(data.res);
+				}else{
+					systemJs.errorLayer(data.message);
+				}
+			}
+		});
+		return false;
+	});
+	
+	form.on('submit(queryRefund)', function(data){
+		var param = data.field;
+		$.ajax({
+			url: '/aliPay/queryRefund',
+			type: 'post',
+			data: data.field,
+			dataType: 'json',
+			success: function(data){
+				if(data.code == 0){
+					systemJs.okLayer(data.message);
+					$('#queryRefundRes').val(data.res);
+				}else{
+					systemJs.errorLayer(data.message);
+				}
+			}
+		});
+		return false;
+	});
+	
+	form.on('submit(close)', function(data){
+		var param = data.field;
+		$.ajax({
+			url: '/aliPay/close',
+			type: 'post',
+			data: data.field,
+			dataType: 'json',
+			success: function(data){
+				if(data.code == 0){
+					systemJs.okLayer(data.message);
+					$('#closeRes').val(data.res);
+				}else{
+					systemJs.errorLayer(data.message);
+					$('#closeRes').val(data.res);
+				}
+			}
+		});
+		return false;
+	});
+	
+});
+
+$('#order_list').click(function(){
+	aliPay.list();
+});
+
+$('#do_search').click(function(){
+	aliPay.list();
+});
+
+aliPay.pageNumber = 1;
+aliPay.pageSize = 20;
+
+
+aliPay.list = function(){
+	  $.ajax('/trader/order/list', {
+    	  type: 'post',
+    	  data:{pageNumber: aliPay.pageNumber
+    		  , pageSize: aliPay.pageSize
+    		  , out_trade_no: $('#out_trade_no').val()
+	  		  , order_name: $('#order_name').val()
+    	  },
+    	  dataType: 'html',
+    	  success: function(data){
+    		  $('#page_list').empty();
+    		  $('#page_list').html(data);
+    	  }
+      });
+  }
+	
+	aliPay.conPay = function(id, order_no, order_name, total_amount){
+		var url = '/aliPay/conPay';
+		window.open(url + '?out_trade_no=' + order_no + '&total_amount=' 
+				+ total_amount + '&subject=' + order_name + '&body=' + '');
+	}
+
+
+</script>
+
+</html>

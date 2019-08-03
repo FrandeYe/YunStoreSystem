@@ -1,0 +1,260 @@
+<!doctype html>
+<html class="x-admin-sm">
+	<head>
+		<meta charset="UTF-8">
+		<title>云库资源管理系统-登录</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		#include('../common/header.vm')
+
+	</head>
+	<style>
+
+body
+{
+  background: #000;
+  overflow: hidden;
+}
+
+canvas
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+</style>
+	<body class="login-bg">
+	<canvas id="canvas"></canvas>
+		<div class="login layui-anim layui-anim-up">
+			<div class="message" id="title">【云库】资源管理系统</div>
+			<div id="darkbannerwrap"></div>
+
+			<form method="post" class="layui-form">
+				<input name="userInfo" placeholder="用户名|手机号" type="text" lay-verify="required" style="color: #1e9fff;" class="layui-input">
+				<hr class="hr15">
+				<input name="password" lay-verify="required" placeholder="密码" type="password" style="color: #1e9fff;" class="layui-input">
+				<hr class="hr15">
+				<input name="code" placeholder="输入图形验证码" type="text" lay-verify="required" class="layui-input" 
+					style="width:49%; color: #1e9fff; font-size:16px;">
+				<input type="text" readonly id="code" style="width:49%; float: right; margin-top: -15%; color: #1e9fff; font-size:20px;" value="#(codeStr)" class="layui-btn">
+				<hr class="hr15">
+				<button lay-submit lay-filter="login" style="width:100%; background-color: #ffffff45" type="submit" id="login_btn" class="layui-btn layui-btn-lg">登录</button>
+				<hr class="hr20">
+			</form>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				<a href="javascript:void(0);" style="color: coral;" id="advise">*建议或问题，请点击这里<a>
+			</div>
+		</div>
+
+		<script>
+			$(function() {
+
+				callBack = function() {
+					$('#login_btn').click();
+				}
+
+				systemJs.onkeydown(callBack);
+
+				layui.use('form', function() {
+
+					var form = layui.form;
+
+					//监听提交
+					form.on('submit(login)', function(data) {
+
+						$("#login_btn").addClass("layui-btn-disabled");
+
+						var res = systemJs.ajax('admin/login', 'json', 'post', data.field, function(){
+							location.href = '/home';
+						});
+
+
+						$("#login_btn").removeClass("layui-btn-disabled");
+						return res;
+					});
+
+					function sendNotice(value){
+						systemJs.ajax('/notice/sendNotice', 'json', 'post', {content: value}, function(){
+							layer.msg('您的信息已经发送至管理员', {icon: 6});});
+					}
+					
+					$('#advise').click(function(){
+						layer.prompt({
+							formType: 0,
+							value: '',
+							title: '填写反馈信息，或添加管理员微信：yxp15779862103',
+							area: ['150px', '100px'],
+							maxlength: 100
+						}, function(value, index, elem) {
+							sendNotice(value);
+							layer.close(index);
+						});
+					});
+					
+					$('#code').click(function(){
+						systemJs.getCode();
+					});
+					
+				});
+				
+			})
+		</script>
+		<!-- 底部结束 -->
+	</body>
+	
+	<script>
+	var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var Line = function () {
+		  function Line(x, y, size, color, speed, seed, amplitude) {_classCallCheck(this, Line);
+		    this.x = x;
+		    this.y = y;
+		    this.size = size;
+		    this.color = color;
+		    this.speed = speed;
+		    this.seed = seed;
+		    this.amplitude = amplitude;
+		    this.i = this.seed;
+		  }_createClass(Line, [{ key: 'update', value: function update()
+
+		    {
+		      this.y -= this.speed;
+		      this.i += this.seed;
+		    } }, { key: 'draw', value: function draw(
+
+		    canvas) {
+		      var x = this.x + Math.sin(this.i) * this.amplitude;
+
+		      canvas.ctx.beginPath();
+		      canvas.ctx.fillStyle = this.color;
+		      canvas.ctx.shadowColor = this.color;
+		      canvas.ctx.shadowBlur = 5;
+		      canvas.ctx.arc(x, this.y, this.size, 0, 2 * Math.PI);
+		      canvas.ctx.fill();
+		      canvas.ctx.closePath();
+		    } }]);return Line;}();var
+
+
+		Canvas = function () {
+		  function Canvas(ctx, w, h) {_classCallCheck(this, Canvas);
+		    this.ctx = ctx;
+		    this.width = w;
+		    this.height = h;
+		    this.scale = 1.0;
+		    this.lines = [];
+		  }_createClass(Canvas, [{ key: 'pushParticle', value: function pushParticle()
+
+		    {
+		      var x = Math.random() * this.width;
+		      var y = this.height + Math.random() * 250;
+		      var size = 1 + Math.random();
+
+		      var g = Math.floor(150 + Math.random() * 50);
+		      var b = Math.floor(150 + Math.random() * 50);
+		      var color = 'rgba(120,' + g + ',' + b + ',0.7)';
+
+		      var speed = 2 + Math.random() * 1.5;
+		      var seed = Math.random() / 20;
+		      var amp = Math.random() * 15;
+
+		      this.lines.push(new Line(x, y, size, color, speed, seed, amp));
+		    } }, { key: 'start', value: function start()
+
+		    {
+		      for (var i = 0; i < 100; i++) {
+		        this.pushParticle();
+		      }
+		    } }, { key: 'update', value: function update()
+
+		    {
+		      for (var i = 0; i < this.lines.length; i++) {
+		        var line = this.lines[i];
+
+		        line.update();
+		      }
+
+		      this.lines = this.lines.filter(function (line) {
+		        return line.y > -2;
+		      });
+
+		      var toAdd = 100 - this.lines.length;
+
+		      if (toAdd === 0) {return;}
+
+		      for (var _i = 0; _i < toAdd; _i++) {
+		        this.pushParticle();
+		      }
+		    } }, { key: 'draw', value: function draw()
+
+		    {
+		      this.ctx.shadowColor = '#000';
+		      this.ctx.shadowBlur = 0;
+		      this.ctx.globalCompositeOperation = 'source-over';
+		      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+		      this.ctx.fillRect(0, 0, this.width, this.height);
+		      this.ctx.globalCompositeOperation = 'lighter';
+
+		      for (var i = 0; i < this.lines.length; i++) {
+		        var line = this.lines[i];
+
+		        line.draw(this);
+		      }
+		    } }]);return Canvas;}();
+
+
+		(function (_) {
+		  var canvasElement = document.getElementById('canvas'),
+		  ctx = canvasElement.getContext('2d'),
+		  canvas = new Canvas(ctx);
+
+		  var w = canvasElement.width = window.innerWidth,
+		  h = canvasElement.height = window.innerHeight,
+		  density = 1;
+
+		  function setup() {
+		    window.addEventListener('resize', resize);
+
+		    density = window.devicePixelRatio != undefined ? window.devicePixelRatio : 1.0;
+
+		    canvasElement.width = w * density;
+		    canvasElement.height = h * density;
+
+		    canvas.width = w;
+		    canvas.height = h;
+		    canvas.scale = density;
+
+		    ctx.scale(density, density);
+
+		    canvas.start();
+
+		    draw();
+		  }
+
+		  function draw() {
+		    canvas.update();
+		    canvas.draw();
+
+		    window.requestAnimationFrame(draw);
+		  }
+
+		  function resize() {
+		    w = canvasElement.width = window.innerWidth;
+		    h = canvasElement.height = window.innerHeight;
+
+		    canvasElement.width = w * density;
+		    canvasElement.height = h * density;
+
+		    canvas.width = w;
+		    canvas.height = h;
+
+		    ctx.scale(density, density);
+		  }
+
+		  setup();
+		})();
+	</script>
+	
+</html>

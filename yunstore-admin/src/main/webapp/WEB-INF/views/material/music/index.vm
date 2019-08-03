@@ -1,0 +1,85 @@
+#include('../../common/header.vm')
+<div class="x-admin-sm">
+
+	<div class="x-nav">
+		<span class="layui-breadcrumb"> <a href=""></a> <a href="">素材管理</a>
+			<a> <cite>音乐库</cite></a>
+		</span> <a class="layui-btn layui-btn-small"
+			style="line-height: 1.6em; margin-top: 3px; float: right"
+			onclick="location.reload()" title="刷新"> <i
+			class="layui-icon layui-icon-refresh" style="line-height: 30px"></i></a>
+	</div>
+
+	<div class="layui-card-header" style="margin-top:10px;">
+		<button class="layui-btn layui-btn-danger" lay-event="getCheckData">
+			<i class="layui-icon"></i>批量删除
+		</button>
+		<button class="layui-btn" onclick="material_music.getUploadView();">
+			<i class="layui-icon"></i>上传音乐
+		</button>
+	</div>
+
+	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+  <legend>音乐库</legend>
+</fieldset>
+
+<div class="site-demo-flow" id="musicList">
+  
+</div>
+
+</div>
+<script>
+layui.use('flow', function(){
+  var flow = layui.flow;
+  
+  flow.load({
+		elem : '#musicList',
+		done : function(page, next) { //到达临界点（默认滚动触发），触发下一页
+			var lis = [];
+			//以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+			$.get('/material/music/list?pageSize=10&pageNumber='+page, function(res) {
+				//假设你的列表返回在data集合中
+				layui.each(res.list, function(index, item) {
+					lis.push('<audio width="320" height="120" title="'+ item.v_name +'" src="'+ item.v_url +'"controls style="margin-left:10px;margin-top:10px;background:rebeccapurple"></audio>');
+				});
+
+				//执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+				//pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+				next(lis.join(''), page < res.totalPage);
+			});
+		}
+	});
+
+});
+
+	material_music = {};
+
+	material_music.getUploadView = function() {
+		$.ajax('/material/music/uploadView', {
+			type : 'get',
+			dataType : 'html',
+			success : function(data) {
+				material_music.openUploadView(data);
+			}
+		});
+	}
+
+	material_music.openUploadView = function(data) {
+		var index = layer.open({
+			type : 1,
+			title : [ '上传音乐' ],
+			area : [ '60%', '60%' ],
+			id : 'img',
+			shade : 0.3,
+			maxmin : true,
+			anim : 1,
+			closeBtn : true,
+			content : data,
+			btn : [ '取消' ],
+			yes : function() {
+				layer.close(index);
+			}
+		});
+	}
+</script>
+
