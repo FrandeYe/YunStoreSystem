@@ -4,4 +4,4 @@
 基于jfinal，x-admin构建
 
 
-![yun01.png](https://github.com/FrandeYe/YunStoreSystem/yunstore-common/db/yun01.png)
+![yun01.png](https://github.com/FrandeYe/YunStoreSystem/blob/master/yunstore-common/db/yun01.png)
