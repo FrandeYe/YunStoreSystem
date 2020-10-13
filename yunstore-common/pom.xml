@@ -14,7 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     <jdk.version>1.8</jdk.version>
-    <junit.version>3.8.1</junit.version>
+    <junit.version>4.13.1</junit.version>
     <jfinal.version>4.2</jfinal.version>
     <cos.version>2017.5</cos.version>
     <apachelog4j.version>2.11.1</apachelog4j.version>
